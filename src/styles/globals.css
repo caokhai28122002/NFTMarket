@@ -24,4 +24,11 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+  font-family: lobster;
+}
+
+@font-face {
+  font-family: "lobster";
+  src: url("/font/static/DancingScript-Regular.ttf");
+  font-style: normal;
 }

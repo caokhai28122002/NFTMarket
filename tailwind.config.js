@@ -13,6 +13,12 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
     },
+    fontFamily: {
+      display: ['lobster', 'sans-serif'],
+      body: ['lobster', 'sans-serif'],
+      'lobster': ['lobster', 'sans-serif'],
+    },
+
   },
   plugins: [],
 }
