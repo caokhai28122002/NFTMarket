@@ -31,7 +31,7 @@ const Header = (props: Props) => {
   const { asPath } = useRouter();
   return (
     <div className="w-full h-32 bg-[#2B0D34] flex flex-1 justify-center">
-      <div className="w-11/12 flex justify-between items-center">
+      <div className="w-10/12 flex justify-between items-center">
         <div className="uppercase text-5xl font-bold text-white">
           NFT-<span className="text-[#E05BFF]">MARKETPLACE</span>
         </div>
