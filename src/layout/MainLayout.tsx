@@ -1,5 +1,6 @@
 import React from 'react'
 import { } from 'next'
+import Header from './Header'
 
 type Props = {
   children?: React.ReactNode
@@ -8,6 +9,7 @@ type Props = {
 const MainLayout = ({ children }: Props) => {
   return (
     <div>
+      <Header/>
       <main>
         <div className="w-full h-max">
           {children}
