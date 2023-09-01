@@ -11,7 +11,7 @@ const MainLayout = ({ children }: Props) => {
     <div>
       <Header/>
       <main>
-        <div className="w-full h-max">
+        <div className="w-full h-max bg-[#3D054A] flex justify-center">
           {children}
         </div>
       </main>

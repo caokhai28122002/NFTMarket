@@ -39,11 +39,11 @@ const Header = (props: Props) => {
           {MENU.map((item) => (
             <div
               key={item.name}
-              className={`min-w-[140px] bg-transparent border-[#E05BFF] 
-              p-2 rounded-full group hover:border-[#E05BFF99] hover:border-[2px] text-center
+              className={`min-w-[140px] bg-transparent border-[#E05BFF] hover:-skew-x-[8deg]
+              p-2 rounded-full group hover:border-[#E05BFF99] hover:border-[2px]  text-center
               border-[${asPath === item.path ? "2px" : "0px"}]`}
             >
-              <span className="text-white uppercase font-semibold text-xl group-hover:text-[#E05BFF99]">
+              <span className="text-white uppercase font-semibold text-xl group-hover:text-[#E05BFF]">
                 {item.name}
               </span>
             </div>
