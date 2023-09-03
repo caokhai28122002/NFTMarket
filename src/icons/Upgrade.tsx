@@ -16,8 +16,8 @@ const Upgrade = ({ ...props }: SVGProps<SVGSVGElement>) => {
         cy="48.4499"
         r="46.58"
         stroke="#E05BFF"
-        stroke-width="2"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinejoin="round"
       />
       <rect x="31.001" y="33" width="36" height="32" fill="url(#pattern0)" />
       <defs>

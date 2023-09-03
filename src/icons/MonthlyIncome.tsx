@@ -16,8 +16,8 @@ const MonthlyIncome = ({ ...props }: SVGProps<SVGSVGElement>) => {
         cy="48.1698"
         r="46.58"
         stroke="#E05BFF"
-        stroke-width="2"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinejoin="round"
       />
       <rect
         x="34.001"

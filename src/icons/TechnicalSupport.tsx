@@ -21,8 +21,8 @@ const TechnicalSupport = ({ ...props }: SVGProps<SVGSVGElement>) => {
       <path
         d="M128.82 64.9101C128.82 100.207 100.207 128.82 64.91 128.82C29.6135 128.82 1 100.207 1 64.9101C1 29.6136 29.6135 1.00012 64.91 1.00012C100.207 1.00012 128.82 29.6136 128.82 64.9101Z"
         stroke="#FFE5FF"
-        stroke-width="2"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinejoin="round"
       />
       <defs>
         <pattern

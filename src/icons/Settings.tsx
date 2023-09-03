@@ -14,8 +14,8 @@ const Settings = ({ ...props }: SVGProps<SVGSVGElement>) => {
       <path
         d="M129.41 65C129.41 100.296 100.796 128.91 65.4998 128.91C30.2033 128.91 1.58984 100.296 1.58984 65C1.58984 29.7034 30.2033 1.08997 65.4998 1.08997C100.796 1.08997 129.41 29.7034 129.41 65Z"
         stroke="#FFE5FF"
-        stroke-width="2"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinejoin="round"
       />
       <defs>
         <pattern

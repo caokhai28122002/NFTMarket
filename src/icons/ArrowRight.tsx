@@ -16,8 +16,8 @@ const ArrowRight = ({ ...props }: SVGProps<SVGSVGElement>) => {
         cy="40.0001"
         r="39"
         stroke="#E05BFF"
-        stroke-width="2"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinejoin="round"
       />
       <rect
         x="35"
