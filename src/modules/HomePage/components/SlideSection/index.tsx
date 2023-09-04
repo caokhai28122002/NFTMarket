@@ -2,7 +2,7 @@ import Slider from "react-slick";
 
 import ArrowRight from "@/icons/ArrowRight";
 import { FCC } from "@/types";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Slide from "./Slide";
 
 const settings = {
@@ -17,6 +17,7 @@ const settings = {
 
 const SlideSection: FCC = () => {
   const slideRef = useRef<Slider>(null);
+  const [index, setIndex] = useState(0);
 
   const handlePrevious = () => {
     if (!slideRef.current) return;
@@ -29,28 +30,68 @@ const SlideSection: FCC = () => {
   };
   return (
     <div className="relative py-16">
-      <Slider {...settings} ref={slideRef} >
-        <Slide slideIndex="01" slogan="GERALD WINE FIELD MOTION ART DIRECTOR" title="INSPIRE, DELIGHT & EDUCATE" description="THAT IS LARGE ENOUGH FOR SEVERAL PEOPLE TO MOVE ABOUT, AND WHOSE SIZE, FIXTURES, THE ACTIVITY TO BE CONDUCTED.">
+      <Slider
+        {...settings}
+        ref={slideRef}
+        beforeChange={(_, next) => setIndex(next)}
+      >
+        <Slide
+          slideIndex="01"
+          isSelected={index === 0}
+          slogan="GERALD WINE FIELD MOTION ART DIRECTOR"
+          title="INSPIRE, DELIGHT & EDUCATE"
+          description="THAT IS LARGE ENOUGH FOR SEVERAL PEOPLE TO MOVE ABOUT, AND WHOSE SIZE, FIXTURES, THE ACTIVITY TO BE CONDUCTED."
+        >
           <div className="flex gap-14">
-            <ArrowRight onClick={handlePrevious} className="-scale-100 cursor-pointer" />
+            <ArrowRight
+              onClick={handlePrevious}
+              className="-scale-100 cursor-pointer"
+            />
             <ArrowRight onClick={handleNext} className="cursor-pointer" />
           </div>
         </Slide>
-        <Slide slideIndex="02" slogan="GERALD WINE FIELD MOTION ART DIRECTOR" title="INSPIRE, DELIGHT & EDUCATE" description="THAT IS LARGE ENOUGH FOR SEVERAL PEOPLE TO MOVE ABOUT, AND WHOSE SIZE, FIXTURES, THE ACTIVITY TO BE CONDUCTED.">
+        <Slide
+          slideIndex="02"
+          isSelected={index === 1}
+          slogan="GERALD WINE FIELD MOTION ART DIRECTOR"
+          title="INSPIRE, DELIGHT & EDUCATE"
+          description="THAT IS LARGE ENOUGH FOR SEVERAL PEOPLE TO MOVE ABOUT, AND WHOSE SIZE, FIXTURES, THE ACTIVITY TO BE CONDUCTED."
+        >
           <div className="flex gap-14">
-            <ArrowRight onClick={handlePrevious} className="-scale-100 cursor-pointer" />
+            <ArrowRight
+              onClick={handlePrevious}
+              className="-scale-100 cursor-pointer"
+            />
             <ArrowRight onClick={handleNext} className="cursor-pointer" />
           </div>
         </Slide>
-        <Slide slideIndex="03" slogan="GERALD WINE FIELD MOTION ART DIRECTOR" title="INSPIRE, DELIGHT & EDUCATE" description="THAT IS LARGE ENOUGH FOR SEVERAL PEOPLE TO MOVE ABOUT, AND WHOSE SIZE, FIXTURES, THE ACTIVITY TO BE CONDUCTED.">
+        <Slide
+          slideIndex="03"
+          isSelected={index === 2}
+          slogan="GERALD WINE FIELD MOTION ART DIRECTOR"
+          title="INSPIRE, DELIGHT & EDUCATE"
+          description="THAT IS LARGE ENOUGH FOR SEVERAL PEOPLE TO MOVE ABOUT, AND WHOSE SIZE, FIXTURES, THE ACTIVITY TO BE CONDUCTED."
+        >
           <div className="flex gap-14">
-            <ArrowRight onClick={handlePrevious} className="-scale-100 cursor-pointer" />
+            <ArrowRight
+              onClick={handlePrevious}
+              className="-scale-100 cursor-pointer"
+            />
             <ArrowRight onClick={handleNext} className="cursor-pointer" />
           </div>
         </Slide>
-        <Slide slideIndex="04" slogan="GERALD WINE FIELD MOTION ART DIRECTOR" title="INSPIRE, DELIGHT & EDUCATE" description="THAT IS LARGE ENOUGH FOR SEVERAL PEOPLE TO MOVE ABOUT, AND WHOSE SIZE, FIXTURES, THE ACTIVITY TO BE CONDUCTED.">
+        <Slide
+          slideIndex="04"
+          isSelected={index === 3}
+          slogan="GERALD WINE FIELD MOTION ART DIRECTOR"
+          title="INSPIRE, DELIGHT & EDUCATE"
+          description="THAT IS LARGE ENOUGH FOR SEVERAL PEOPLE TO MOVE ABOUT, AND WHOSE SIZE, FIXTURES, THE ACTIVITY TO BE CONDUCTED."
+        >
           <div className="flex gap-14">
-            <ArrowRight onClick={handlePrevious} className="-scale-100 cursor-pointer" />
+            <ArrowRight
+              onClick={handlePrevious}
+              className="-scale-100 cursor-pointer"
+            />
             <ArrowRight onClick={handleNext} className="cursor-pointer" />
           </div>
         </Slide>
