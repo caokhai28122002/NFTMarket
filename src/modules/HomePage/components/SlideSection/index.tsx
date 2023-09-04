@@ -95,6 +95,21 @@ const SlideSection: FCC = () => {
             <ArrowRight onClick={handleNext} className="cursor-pointer" />
           </div>
         </Slide>
+        <Slide
+          slideIndex="05"
+          isSelected={index === 4}
+          slogan="GERALD WINE FIELD MOTION ART DIRECTOR"
+          title="INSPIRE, DELIGHT & EDUCATE"
+          description="THAT IS LARGE ENOUGH FOR SEVERAL PEOPLE TO MOVE ABOUT, AND WHOSE SIZE, FIXTURES, THE ACTIVITY TO BE CONDUCTED."
+        >
+          <div className="flex gap-14">
+            <ArrowRight
+              onClick={handlePrevious}
+              className="-scale-100 cursor-pointer"
+            />
+            <ArrowRight onClick={handleNext} className="cursor-pointer" />
+          </div>
+        </Slide>
       </Slider>
     </div>
   );

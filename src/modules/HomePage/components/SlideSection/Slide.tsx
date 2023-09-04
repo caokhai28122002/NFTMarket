@@ -2,6 +2,7 @@ import AnimatedTrigger from "@/components/AnimatedTrigger";
 import type { Variants } from "framer-motion";
 import { motion } from "framer-motion";
 import { FCC } from "@/types";
+import AnimatedText from "@/components/AnimatedText";
 
 type IProps = {
   slideIndex: "01" | "02" | "03" | "04" | "05";
@@ -56,7 +57,7 @@ const Slide: FCC<IProps> = ({
 }) => {
   return (
     <AnimatedTrigger trigger={isSelected}>
-      <div className="flex w-full justify-between gap-32 px-1">
+      <div className="flex w-full justify-between gap-20 px-1">
         <div className="flex flex-col w-fit min-w-[250px] gap-20">
           <div className="flex flex-col gap-8">
             <motion.span
@@ -82,21 +83,14 @@ const Slide: FCC<IProps> = ({
           variants={variants}
           initial="bottomHide"
           animate="bottomShow"
-          className="flex flex-col gap-8 w-fit"
+          className="flex flex-col gap-8 w-fit max-w-screen-lg"
         >
-          <motion.p
-            variants={variants}
-            initial="bottomHide"
-            animate="bottomShow"
-            className="font-extrabold text-[100px] leading-tight text-white"
-          >
-            {title}
-          </motion.p>
+          <AnimatedText text={title} textClassName="font-extrabold text-[100px] leading-tight text-white"/>
           <motion.div
             variants={variants}
             initial="fadeHide"
             animate="fadeShow"
-            className="flex flex-col gap-2"
+            className="flex flex-col gap-2 max-w-screen-md"
           >
             <p className="text-white font-medium text-xl">{description}</p>
             <div className="w-[200px] h-[10px] rounded bg-white"></div>
