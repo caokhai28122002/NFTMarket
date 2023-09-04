@@ -3,6 +3,7 @@ import type { Variants } from "framer-motion";
 import { motion } from "framer-motion";
 import { FCC } from "@/types";
 import AnimatedText from "@/components/AnimatedText";
+import IndexText from "./IndexText";
 
 type IProps = {
   slideIndex: "01" | "02" | "03" | "04" | "05";
@@ -60,14 +61,12 @@ const Slide: FCC<IProps> = ({
       <div className="flex w-full justify-between gap-20 px-1">
         <div className="flex flex-col w-fit min-w-[250px] gap-20">
           <div className="flex flex-col gap-8">
-            <motion.span
-              className="text-[#E05BFF] font-bold text-6xl"
-              variants={variants}
-              initial="fadeHide"
-              animate="fadeShow"
-            >
-              {slideIndex}
-            </motion.span>
+            <IndexText
+              nextIndex={slideIndex}
+              prevIndex={`0${
+                Number(slideIndex) === 1 ? 5 : Number(slideIndex) - 1
+              }`}
+            />
             <motion.p
               variants={variants}
               initial={Number(slideIndex) % 2 === 0 ? "leftHide" : "rightHide"}
@@ -85,7 +84,10 @@ const Slide: FCC<IProps> = ({
           animate="bottomShow"
           className="flex flex-col gap-8 w-fit max-w-screen-lg"
         >
-          <AnimatedText text={title} textClassName="font-extrabold text-[100px] leading-tight text-white"/>
+          <AnimatedText
+            text={title}
+            textClassName="font-extrabold text-[100px] leading-tight text-white"
+          />
           <motion.div
             variants={variants}
             initial="fadeHide"
