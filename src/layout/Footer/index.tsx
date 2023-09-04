@@ -15,7 +15,7 @@ export const MENU = [
     path: "/nfts",
   },
   {
-    name: "OUR ABOUT US ",
+    name: "ABOUT US ",
     path: "/collection",
   },
   {
@@ -23,7 +23,7 @@ export const MENU = [
     path: "/mint",
   },
   {
-    name: "Blog",
+    name: "BLOG",
     path: "/blog",
   },
   {
@@ -44,7 +44,7 @@ const Footer = (props: Props) => {
           {MENU.map((item) => (
             <div
               key={item.name}
-              className={`min-w-[140px] bg-transparent border-[#E05BFF] hover:-skew-x-[8deg]
+              className={`min-w-[150px] bg-transparent border-[#E05BFF] hover:-skew-x-[8deg]
               p-2 rounded-full group hover:border-[#E05BFF99] hover:border-[2px]  text-center
               border-[${asPath === item.path ? "2px" : "0px"}]`}
             >

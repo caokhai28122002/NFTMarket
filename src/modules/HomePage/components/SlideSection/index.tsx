@@ -1,12 +1,12 @@
 import Slider from "react-slick";
 
-import { FCC } from "@/types";
-import React from "react";
 import ArrowRight from "@/icons/ArrowRight";
-import SlideOne from "./SlideOne";
+import { FCC } from "@/types";
+import { useRef } from "react";
+import Slide from "./Slide";
 
 const settings = {
-  dots: false,
+  dots: true,
   infinite: true,
   speed: 500,
   slidesToShow: 1,
@@ -16,33 +16,44 @@ const settings = {
 };
 
 const SlideSection: FCC = () => {
+  const slideRef = useRef<Slider>(null);
+
+  const handlePrevious = () => {
+    if (!slideRef.current) return;
+    slideRef?.current.slickPrev();
+  };
+
+  const handleNext = () => {
+    if (!slideRef.current) return;
+    slideRef?.current.slickNext();
+  };
   return (
     <div className="relative py-16">
-      <Slider {...settings} >
-        <SlideOne>
+      <Slider {...settings} ref={slideRef} >
+        <Slide slideIndex="01" slogan="GERALD WINE FIELD MOTION ART DIRECTOR" title="INSPIRE, DELIGHT & EDUCATE" description="THAT IS LARGE ENOUGH FOR SEVERAL PEOPLE TO MOVE ABOUT, AND WHOSE SIZE, FIXTURES, THE ACTIVITY TO BE CONDUCTED.">
           <div className="flex gap-14">
-            <ArrowRight className="-scale-100" />
-            <ArrowRight />
+            <ArrowRight onClick={handlePrevious} className="-scale-100 cursor-pointer" />
+            <ArrowRight onClick={handleNext} className="cursor-pointer" />
           </div>
-        </SlideOne>
-        <SlideOne>
+        </Slide>
+        <Slide slideIndex="02" slogan="GERALD WINE FIELD MOTION ART DIRECTOR" title="INSPIRE, DELIGHT & EDUCATE" description="THAT IS LARGE ENOUGH FOR SEVERAL PEOPLE TO MOVE ABOUT, AND WHOSE SIZE, FIXTURES, THE ACTIVITY TO BE CONDUCTED.">
           <div className="flex gap-14">
-            <ArrowRight className="-scale-100" />
-            <ArrowRight />
+            <ArrowRight onClick={handlePrevious} className="-scale-100 cursor-pointer" />
+            <ArrowRight onClick={handleNext} className="cursor-pointer" />
           </div>
-        </SlideOne>
-        <SlideOne>
+        </Slide>
+        <Slide slideIndex="03" slogan="GERALD WINE FIELD MOTION ART DIRECTOR" title="INSPIRE, DELIGHT & EDUCATE" description="THAT IS LARGE ENOUGH FOR SEVERAL PEOPLE TO MOVE ABOUT, AND WHOSE SIZE, FIXTURES, THE ACTIVITY TO BE CONDUCTED.">
           <div className="flex gap-14">
-            <ArrowRight className="-scale-100" />
-            <ArrowRight />
+            <ArrowRight onClick={handlePrevious} className="-scale-100 cursor-pointer" />
+            <ArrowRight onClick={handleNext} className="cursor-pointer" />
           </div>
-        </SlideOne>
-        <SlideOne>
+        </Slide>
+        <Slide slideIndex="04" slogan="GERALD WINE FIELD MOTION ART DIRECTOR" title="INSPIRE, DELIGHT & EDUCATE" description="THAT IS LARGE ENOUGH FOR SEVERAL PEOPLE TO MOVE ABOUT, AND WHOSE SIZE, FIXTURES, THE ACTIVITY TO BE CONDUCTED.">
           <div className="flex gap-14">
-            <ArrowRight className="-scale-100" />
-            <ArrowRight />
+            <ArrowRight onClick={handlePrevious} className="-scale-100 cursor-pointer" />
+            <ArrowRight onClick={handleNext} className="cursor-pointer" />
           </div>
-        </SlideOne>
+        </Slide>
       </Slider>
     </div>
   );
