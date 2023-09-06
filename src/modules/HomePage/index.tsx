@@ -3,10 +3,10 @@ import { NextPageWithLayout } from "@/types";
 import HeroSection from "./components/HeroSection";
 import OurService from "./components/OurService";
 import SlideSection from "./components/SlideSection";
-import { VietQR } from "@/libraries/qr-code";
+import { QRCode } from "@/libraries/qr-code";
 const HomePage: NextPageWithLayout = () => {
-  const vietQR = new VietQR();
-  const value = vietQR
+  const qrCode = new QRCode();
+  const value = qrCode
     .setBeneficiaryOrganization("970415", "109871427613")
     .setTransactionAmount("50000")
     .setAdditionalDataFieldTemplate("noidunggiaodich")

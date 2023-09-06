@@ -1,4 +1,4 @@
-export class VietQR {
+export class QRCode {
   private payloadFormatIndicator: string;
   private pointOfInitiationMethod: string;
   private consumerAccountInformation: string;
