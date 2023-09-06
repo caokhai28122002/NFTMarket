@@ -3,49 +3,46 @@ export class VietQR {
   private pointOfInitiationMethod: string;
   private consumerAccountInformation: string;
   private guid: string;
-  private serviceCode: string;
   private transactionCurrency: string;
   private transactionAmount: string;
   private countryCode: string;
-  private crc: string;
   private additionalDataFieldTemplate: string;
+
   constructor() {
     this.payloadFormatIndicator = "000201";
     this.pointOfInitiationMethod = "010212";
     this.consumerAccountInformation = "";
     this.guid = "0010A000000727";
-    this.serviceCode = "0208QRIBFTTA";
     this.transactionCurrency = "5303704";
     this.transactionAmount = "";
     this.countryCode = "5802VN";
     this.additionalDataFieldTemplate = "";
-    this.crc = "";
   }
 
-  convertLength(str: any) {
+  convertLength(str: string | number): string | number {
     const num = parseInt(String(str));
     return num < 10 ? `0${num}` : num;
   }
 
-  setTransactionAmount(money: any) {
+  setTransactionAmount(money: string) {
     const length = this.convertLength(money.length);
     this.transactionAmount = `54${length}${money}`;
     return this;
   }
 
-  setBeneficiaryOrganization(acquierID: any, consumerID: any) {
-    const acquierLength = this.convertLength(acquierID.length);
-    const acquier = `00${acquierLength}${acquierID}`;
+  setBeneficiaryOrganization(acquireID: string, consumerID: string) {
+    const acquireLength = this.convertLength(acquireID.length);
+    const acquire = `00${acquireLength}${acquireID}`;
     const consumerLength = this.convertLength(consumerID.length);
     const consumer = `01${consumerLength}${consumerID}`;
     const beneficiaryOrganizationLength = this.convertLength(
-      `${acquier}${consumer}`.length
+      `${acquire}${consumer}`.length
     );
 
     const consumerAccountInformationLength = this.convertLength(
       beneficiaryOrganizationLength + 30
     );
-    this.consumerAccountInformation = `38${consumerAccountInformationLength}${this.guid}01${beneficiaryOrganizationLength}${acquier}${consumer}0208QRIBFTTA`;
+    this.consumerAccountInformation = `38${consumerAccountInformationLength}${this.guid}01${beneficiaryOrganizationLength}${acquire}${consumer}0208QRIBFTTA`;
     return this;
   }
 
