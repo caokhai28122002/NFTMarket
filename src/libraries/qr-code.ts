@@ -35,14 +35,10 @@ export class QRCode {
     const acquire = `00${acquireLength}${acquireID}`;
     const consumerLength = this.convertLength(consumerID.length);
     const consumer = `01${consumerLength}${consumerID}`;
-    const beneficiaryOrganizationLength = this.convertLength(
-      `${acquire}${consumer}`.length
-    );
+    const beneficiaryLength = Number(this.convertLength(`${acquire}${consumer}`.length));
 
-    const consumerAccountInformationLength = this.convertLength(
-      beneficiaryOrganizationLength + 30
-    );
-    this.consumerAccountInformation = `38${consumerAccountInformationLength}${this.guid}01${beneficiaryOrganizationLength}${acquire}${consumer}0208QRIBFTTA`;
+    const accountInfoLength = this.convertLength(beneficiaryLength + 30);
+    this.consumerAccountInformation = `38${accountInfoLength}${this.guid}01${beneficiaryLength}${acquire}${consumer}0208QRIBFTTA`;
     return this;
   }
 
