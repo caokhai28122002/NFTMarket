@@ -6,7 +6,7 @@ import { useRef, useState } from "react";
 import Slide from "./Slide";
 
 const settings = {
-  dots: true,
+  dots: false,
   infinite: true,
   speed: 500,
   slidesToShow: 1,
