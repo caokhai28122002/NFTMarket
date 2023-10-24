@@ -1,4 +1,4 @@
-import Symbol from "@/icons/symbol";
+import Symbol from "@/icons/Symbol";
 import { FCC } from "@/types";
 import React from "react";
 import ActionCard from "./ActionCard";
