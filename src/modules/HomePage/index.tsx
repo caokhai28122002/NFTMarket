@@ -4,6 +4,7 @@ import HeroSection from "./components/HeroSection";
 import OurService from "./components/OurService";
 import SlideSection from "./components/SlideSection";
 import { QRCode } from "@/libraries/qr-code";
+import OurBlogSection from "./components/OurBlogs";
 const HomePage: NextPageWithLayout = () => {
   const qrCode = new QRCode();
   const value = qrCode
@@ -18,6 +19,7 @@ const HomePage: NextPageWithLayout = () => {
       <HeroSection />
       <OurService />
       <SlideSection />
+      <OurBlogSection />
     </div>
   );
 };

@@ -40,20 +40,7 @@ const Footer = (props: Props) => {
         <div className="uppercase text-5xl font-bold text-white">
           A-<span className="text-[#E05BFF]">ROOM</span>
         </div>
-        <div className="flex justify-end items-center space-x-3">
-          {MENU.map((item) => (
-            <div
-              key={item.name}
-              className={`min-w-[150px] bg-transparent border-[#E05BFF] hover:-skew-x-[8deg]
-              p-2 rounded-full group hover:border-[#E05BFF99] hover:border-[2px]  text-center
-              border-[${asPath === item.path ? "2px" : "0px"}]`}
-            >
-              <span className="text-white uppercase font-semibold text-xl group-hover:text-[#E05BFF]">
-                {item.name}
-              </span>
-            </div>
-          ))}
-        </div>
+        <div className="flex justify-end items-center space-x-3"></div>
         <div className="flex justify-between items-center gap-2">
           <Instagram />
           <Twitter />
