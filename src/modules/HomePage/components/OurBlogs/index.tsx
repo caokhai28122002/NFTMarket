@@ -13,7 +13,7 @@ const OurBlogSection: FCC = () => {
         </p>
       </div>
       <div className="w-full py-8 flex flex-col gap-12">
-        <div className="bg-[#620079] h-36 px-20 rounded-3xl flex flex-row items-center justify-between">
+        <div className="bg-[#620079] h-36 px-10 rounded-3xl flex flex-row items-center justify-between">
           <div className="flex flex-row items-center justify-center gap-2 w-full mx-8 cursor-pointer">
             <Right />
             <p className="text-white uppercase text-2xl font-bold">

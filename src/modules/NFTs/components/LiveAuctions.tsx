@@ -1,21 +1,27 @@
 import { FCC } from "@/types";
 import ActionCard from "./ActionCard";
+import Button from "@/components/Button";
 
 type Props = {};
 
 const LiveAuctions: FCC = (props: Props) => {
   return (
     <div>
-      <div className="h-full w-full min-h-[calc(100vh-128px)] items-center pt-16">
-        <div className="flex flex-row justify-between text-white">
-          <p className="text-2xl">Live Auctions</p>
-          <p className="">EXPLORE MORE</p>
+      <div className="h-full w-full flex flex-col items-center py-16 gap-16">
+        <div className="flex flex-row w-full justify-between text-white">
+          <p className="text-4xl font-bold">Live Auctions</p>
+          <p className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#E250E5] to-[#4B50E6]">
+            EXPLORE MORE
+          </p>
         </div>
-        <div className="flex flex-row w-full justify-between">
-          {Array.from({ length: 4 }).fill(0).map((v,i) => (
-            <ActionCard key={i} />
-          ))}
+        <div className="flex flex-row w-full justify-between gap-16 flex-wrap ">
+          {Array.from({ length: 8 })
+            .fill(0)
+            .map((v, i) => (
+              <ActionCard key={i} />
+            ))}
         </div>
+        <Button className="text-lg px-8">Load more</Button>
       </div>
     </div>
   );

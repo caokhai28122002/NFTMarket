@@ -32,13 +32,13 @@ const Monster: FCC = (props: Props) => {
               </p>
               <div className="flex flex-col gap-6">
                 <div className="flex flex-row items-center gap-4">
-                  <Button className="text-lg">
+                  <Button className="text-lg px-4">
                     <div className="flex gap-2 justify-center items-center">
                       <Flightfrom width={28} height={28} />
                       Explore
                     </div>
                   </Button>
-                  <Button className="text-lg">
+                  <Button className="text-lg px-4">
                     <div className="flex gap-2 justify-center items-center">
                       <Write width={28} height={28} />
                       Create

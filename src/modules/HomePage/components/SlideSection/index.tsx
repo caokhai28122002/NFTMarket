@@ -29,7 +29,7 @@ const SlideSection: FCC = () => {
     slideRef?.current.slickNext();
   };
   return (
-    <div className="relative py-16">
+    <div className="relative py-48">
       <Slider
         {...settings}
         ref={slideRef}
