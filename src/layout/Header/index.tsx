@@ -1,6 +1,8 @@
 import Button from "@/components/Button";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
+import ConnectWallet from "./ConnectWallet";
 
 type Props = {};
 
@@ -14,16 +16,8 @@ export const MENU = [
     path: "/nfts",
   },
   {
-    name: "Collection",
-    path: "/collection",
-  },
-  {
     name: "Mint",
     path: "/mint",
-  },
-  {
-    name: "Blog",
-    path: "/blog",
   },
 ];
 
@@ -37,18 +31,19 @@ const Header = (props: Props) => {
         </div>
         <div className="flex justify-end items-center space-x-3">
           {MENU.map((item) => (
-            <div
-              key={item.name}
-              className={`min-w-[140px] bg-transparent border-[#E05BFF] hover:-skew-x-[8deg]
+            <Link href={item.path} key={item.name}>
+              <div
+                className={`min-w-[140px] bg-transparent border-[#E05BFF] hover:-skew-x-[8deg]
               p-2 rounded-full group hover:border-[#E05BFF99] hover:border-[2px]  text-center
               border-[${asPath === item.path ? "2px" : "0px"}]`}
-            >
-              <span className="text-white uppercase font-semibold text-xl group-hover:text-[#E05BFF]">
-                {item.name}
-              </span>
-            </div>
+              >
+                <span className="text-white uppercase font-semibold text-xl group-hover:text-[#E05BFF]">
+                  {item.name}
+                </span>
+              </div>
+            </Link>
           ))}
-          <Button>CONNECT WALLET</Button>
+          <ConnectWallet />
         </div>
       </div>
     </div>
