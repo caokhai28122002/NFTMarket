@@ -1,14 +1,18 @@
 import Avatar from "@/components/Avatar";
 import Button from "@/components/Button";
 import { cutString } from "@/libraries/utils";
-import { useEthers } from "@usedapp/core";
+// import { useEthers } from "@usedapp/core";
 import React from "react";
 
 type Props = {};
 
 const ConnectWallet = (props: Props) => {
-  const { account, deactivate, activateBrowserWallet } = useEthers();
-  
+  const { account, deactivate, activateBrowserWallet } = {
+    account: "0xA03b3Cb0e4e18cf4cBb2095C4158292cf6EA09d7",
+    activateBrowserWallet: () => {},
+    deactivate: () => {},
+  };
+
   if (account)
     return (
       <Button onClick={() => deactivate()} className="flex items-center gap-1">
