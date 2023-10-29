@@ -3,16 +3,16 @@ import React from "react";
 
 const ActionCard = () => {
   return (
-    <div className="bg-[#343444] flex-grow lg:w-[calc(100%*(1/4)-10px-1px)] xl:w-[calc(100%*(1/5)-10px-1px)] h-fit p-4 text-white flex flex-col gap-4 rounded-xl">
+    <div className="bg-[#34344499] ring-2 hover:ring-4 cursor-pointer ring-blue-500 hover:bg-[#343444] shadow-lg hover:shadow-[#5142FC] flex-grow lg:w-[calc(100%*(1/4)-10px-1px)] xl:w-[calc(100%*(1/5)-10px-1px)] h-fit p-4 text-white flex flex-col gap-4 rounded-xl">
       <div className="relative w-full h-fit">
-        <img className="w-full rounded-xl" src="/images/boom.png" alt="anh" />
-        <div className="flex flex-row justify-end items-center absolute right-3 top-3 bg-black rounded-lg px-2 py-1  ">
+        <img className="w-full rounded-xl aspect-square" src="/images/boom.png" alt="anh" />
+        <div className="flex flex-row justify-end items-center absolute right-3 top-3 font-medium bg-black rounded-lg px-2 py-1 gap-1">
           <Symbol /> <p>100</p>
         </div>
       </div>
-      <p className="flex justify-between text-xs md:text-lg">
+      <p className="flex justify-between items-center text-xs md:text-lg font-semibold">
         Hamlet Contemplates
-        <span className="px-2 bg-[#5142FC] rounded-[10px] min-w-fit text-base uppercase">
+        <span className="px-3 bg-[#5142FC] rounded-[10px] min-w-fit text-base uppercase">
           bsc
         </span>
       </p>
@@ -20,13 +20,13 @@ const ActionCard = () => {
         <div className="flex justify-start flex-row items-center gap-4 ">
           <img src="/images/avatar.png" className="rounded-md" alt="avatar" />
           <div className="flex flex-col items-start">
-            <p className="text-[#8A8AA0]">Creator</p>
-            <p>SalvadorDali</p>
+            <p className="text-[#8A8AA0] font-medium">Creator</p>
+            <p className="font-semibold">SalvadorDali</p>
           </div>
         </div>
         <div className="flex flex-col items-end">
-          <p className="text-[#8A8AA0]">Current Bid</p>
-          <p>4.89 ETH</p>
+          <p className="text-[#8A8AA0] font-medium">Current Bid</p>
+          <p className="font-semibold">4.89 ETH</p>
         </div>
       </div>
     </div>

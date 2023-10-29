@@ -31,3 +31,57 @@ body {
   src: url("/font/static/DancingScript-Regular.ttf");
   font-style: normal;
 }
+
+@keyframes bounce2 {
+  0%, 100% {
+    transform: translateY(-100%);
+  }
+  50% {
+    transform:  translateY(100%);
+  }
+}
+.animate-bounce2 {
+  animation: bounce2 3s infinite;
+}
+
+@keyframes bounce3 {
+  0%, 100% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+}
+.animate-bounce3 {
+  animation: bounce3 5s infinite;
+}
+
+@keyframes bounce4 {
+  0%{
+    transform: translateX(-200%);
+  } 
+  66% {
+    transform: translateY(200%);
+  }
+  33% {
+    transform: translateY(-200%);
+  }
+  100%{
+    transform: translateX(-200%);
+  } 
+}
+.animate-bounce4 {
+  animation: bounce4 10s infinite;
+}
+
+@keyframes bounceimg {
+  0%, 100% {
+    transform: translateX(-20%);
+  }
+  50% {
+    transform:  translateX(20%);
+  }
+}
+.animate-bounce-img {
+  animation: bounceimg 10s infinite;
+}
