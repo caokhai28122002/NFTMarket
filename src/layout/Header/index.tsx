@@ -13,7 +13,7 @@ export const MENU = [
   },
   {
     name: "NFTs",
-    path: "/nft-list",
+    path: "/nfts",
   },
   {
     name: "Mint",
