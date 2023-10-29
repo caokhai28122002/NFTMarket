@@ -13,7 +13,7 @@ const Monster: FCC = (props: Props) => {
         <div className="grid grid-cols-12 gap-4">
           <div className="col-span-12 xl:col-span-5 items-center lg:items-start">
             <div className="flex flex-col w-full xl:w-fit items-center gap-6">
-              <p className="text-white text-center font-bold text-[42px] xl:text-[71px] uppercase">
+              <div className="text-white text-center font-bold text-[42px] xl:text-[71px] uppercase">
                 Discover, find, <br className="hidden xl:block" />
                 <div
                   className="text-transparent bg-[linear-gradient(180deg,rgba(226,80,229,0.86)0%,#4B50E6),linear-gradient(0deg,#FFFFFF,#FFFFFF)] text-[#3D054A]"
@@ -25,7 +25,7 @@ const Monster: FCC = (props: Props) => {
                   Sell extraordinary
                 </div>
                 Monster NFTs
-              </p>
+              </div>
               <p className="text-[23px] text-white text-center uppercase">
                 Marketplace for monster character cllections non fungible token
                 NFTs
