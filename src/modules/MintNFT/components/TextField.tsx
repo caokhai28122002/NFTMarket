@@ -37,7 +37,7 @@ const TextField: FC<Props> = ({
             name="name"
             value={field.value}
             onChange={field.onChange}
-            className={`ring-blue-500 ring-2 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 bg-gray-500 placeholder-gray-300 text-white ${className}`}
+            className={`ring-blue-500 ring-2 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 bg-[#661B77] placeholder-gray-300 text-white ${className}`}
             {...props}
           />
         </div>

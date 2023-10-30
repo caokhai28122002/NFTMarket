@@ -55,7 +55,7 @@ const ChooseImageField: FCC<Props> = ({
       name={name}
       render={({ field, fieldState: { error } }) => (
         <div className="w-full">
-          <div className="w-full max-w-full aspect-square flex flex-col gap-8 items-center justify-center rounded-2xl bg-[#9ecaff38] border-[2px] border-white border-dashed">
+          <div className="w-full max-w-full aspect-square flex flex-col gap-8 items-center justify-center rounded-2xl bg-[#661B77] border-[2px] border-white border-dashed">
             {field.value ? (
               <div className="w-full h-full p-1 shadow-[rgba(149,157,165,0.2)0px8px24px] relative">
                 <div className="relative w-full h-full block">
