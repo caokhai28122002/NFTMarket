@@ -6,7 +6,7 @@ const LoadingNFT = (props: Props) => {
   return (
     <div
       role="status"
-      className="bg-[#34344499] animate-pulse flex-grow lg:w-[calc(100%*(1/4)-10px-1px)] xl:w-[calc(100%*(1/5)-10px-1px)] h-fit p-4 text-white flex flex-col gap-4 rounded-xl"
+      className="bg-[#34344499] animate-pulse flex-grow w-full md:max-w-[calc(100%*(1/3)-10px-1px)] lg:max-w-[calc(100%*(1/4)-10px-1px)] xl:max-w-[calc(100%*(1/5)-10px-1px)] h-fit p-4 text-white flex flex-col gap-4 rounded-xl"
     >
       <div className="bg-gray-300 w-full h-fit aspect-square flex items-center justify-center dark:bg-gray-700 rounded-lg">
         <svg
