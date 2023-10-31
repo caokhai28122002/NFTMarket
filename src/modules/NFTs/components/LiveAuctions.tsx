@@ -1,10 +1,12 @@
+import Button from "@/components/Button";
+import useNFTs from "@/hooks/useNFTs";
 import { FCC } from "@/types";
 import ActionCard from "./ActionCard";
-import Button from "@/components/Button";
 
-type Props = {};
+const LiveAuctions: FCC = () => {
+  const { loading, nfts } = useNFTs();
+  console.log({ loading, nfts });
 
-const LiveAuctions: FCC = (props: Props) => {
   return (
     <div>
       <div className="h-full w-full flex flex-col items-center py-16 gap-16">

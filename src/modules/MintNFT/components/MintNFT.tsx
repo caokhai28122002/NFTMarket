@@ -18,8 +18,10 @@ type Props = {};
 
 const MintNFT = (props: Props) => {
   const { push } = useRouter();
+  const [loading, setLoading] = useState(false);
   const [file, setFile] = useState<File | null>(null);
   const { contract } = useContract();
+  const form = useForm({});
 
   const onSubmit = async (data: any) => {
     if (!data.name || !data.description || !data.price || !file) {
@@ -27,6 +29,7 @@ const MintNFT = (props: Props) => {
       return;
     }
     try {
+      setLoading(true);
       const image = await uploadImage(file);
       const nft = await uploadNFTData({
         name: data.name,
@@ -35,18 +38,19 @@ const MintNFT = (props: Props) => {
         createdAt: new Date().toISOString(),
         image: PINATA_IPFS_URL + image.IpfsHash,
       });
-      createSale(PINATA_IPFS_URL, data.price);
-    } catch (error) {}
+      await createSale(PINATA_IPFS_URL + nft.IpfsHash, data.price);
+    } catch (error) {
+    } finally {
+      setLoading(false);
+    }
   };
 
   async function createSale(url: string, price: string) {
     try {
-      let fee = await contract?.getListingFee();
-      fee = fee.toString();
-
-      let transaction = await contract?.createToken(url, price, { value: fee });
-      const tx = await transaction.wait();
-      console.log(tx);
+      let transaction = await contract?.createToken(url, price, {
+        value: ethers.parseUnits("0", "wei"),
+      });
+      await transaction.wait();
       toast.success("Your NFT has been listed.");
       push("/");
     } catch (e) {
@@ -55,7 +59,6 @@ const MintNFT = (props: Props) => {
     }
   }
 
-  const form = useForm({});
   return (
     <div className="container bg-[#E05BFF10] ring-4 ring-[#E05BFF40] py-6 rounded-xl bg-opacity-50 px-10 my-20">
       <FormWrapper methods={form} onSubmit={onSubmit}>
@@ -87,8 +90,9 @@ const MintNFT = (props: Props) => {
               placeholder="10 ETH"
             />
             <button
+              disabled={loading}
               type="submit"
-              className="flex w-full h-[50px] justify-center items-center border rounded-full text-white hover:bg-[#E05BFF40] hover:ring-2 hover:ring-white"
+              className="flex disabled:bg-gray-400 w-full h-[50px] justify-center items-center border rounded-full text-white hover:bg-[#E05BFF40] hover:ring-2 hover:ring-white"
             >
               Mint and Sale Now
             </button>

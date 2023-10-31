@@ -94,7 +94,10 @@ const ChooseImageField: FCC<Props> = ({
                 <p className="text-lg font-medium lg:text-xl text-[#343434]">
                   Or choose file here
                 </p>
-                <button className="bg-white hover:bg-[#9ecaff35] text-[#202020] rounded-md px-4 py-2 font-semibold">
+                <button
+                  type="button"
+                  className="bg-white hover:bg-[#9ecaff35] text-[#202020] rounded-md px-4 py-2 font-semibold"
+                >
                   Bowse
                 </button>
               </div>

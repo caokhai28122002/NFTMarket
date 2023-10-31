@@ -11,7 +11,7 @@ contract NFTMarket is ERC721URIStorage {
     Counters.Counter private _itemsSold;
 
     address payable owner;
-    uint256 listingFee = 1 ether;
+    uint256 listingFee = 0 ether;
 
     constructor() ERC721("NFTH CHAIN", "NFTH") {
         owner = payable(msg.sender);
@@ -102,7 +102,7 @@ contract NFTMarket is ERC721URIStorage {
 
         MarketItem[] memory items = new MarketItem[](unsoldItemCount);
         for (uint256 i = 0; i < itemCount; i++) {
-            if (idToMarketItem[i + 1].owner == address(0)) {
+            if (idToMarketItem[i + 1].owner == address(this)) {
                 MarketItem storage currentItem = idToMarketItem[i + 1];
                 items[currentIndex] = currentItem;
                 currentIndex += 1;
