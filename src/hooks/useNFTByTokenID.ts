@@ -32,8 +32,6 @@ const useNFTByTokenID = (tokenId: string) => {
       });
     } catch (error) {
       console.log(error);
-
-      toast.error("Something error occurred");
     } finally {
       setLoading(false);
     }
