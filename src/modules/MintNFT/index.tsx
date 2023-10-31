@@ -6,7 +6,7 @@ import MintNFT from "./components/MintNFT";
 
 const MintNFTPage: NextPageWithLayout = () => {
   return (
-    <div>
+    <div className="h-full w-full flex flex-col justify-center items-center py-16">
       <HeroSection />
       <MintNFT />
     </div>

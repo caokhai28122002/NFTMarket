@@ -8,7 +8,7 @@ npx hardhat node
 
 
 ```bash
-npx hardhat run --network hardhat ./scripts/deploy.ts
+npx hardhat run --network localhost ./scripts/deploy.ts
 ```
 
 ```bash
