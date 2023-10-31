@@ -19,7 +19,7 @@ const LiveAuctions: FCC = () => {
           </p>
         </div>
         <div className="flex flex-row w-full justify-between gap-16 flex-wrap ">
-          {!loading &&
+          {loading &&
             Array.from({ length: 8 })
               .fill(0)
               .map((v, i) => <LoadingNFT key={i} />)}

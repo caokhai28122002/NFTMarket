@@ -1,6 +1,4 @@
 import { FCC } from "@/types";
-import React from "react";
-import ActionCard from "./ActionCard";
 
 type Props = {};
 
@@ -12,11 +10,7 @@ const LiveAuctions: FCC = (props: Props) => {
           <p className="text-2xl">Today&rsquo;s Picks</p>
           <p className="">EXPLORE MORE</p>
         </div>
-        <div className="flex flex-row w-full justify-between">
-          {Array.from({ length: 4 }).fill(0).map((v,i) => (
-            <ActionCard key={i} />
-          ))}
-        </div>
+        <div className="flex flex-row w-full justify-between"></div>
       </div>
     </div>
   );
