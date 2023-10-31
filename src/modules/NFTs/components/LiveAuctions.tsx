@@ -2,6 +2,8 @@ import Button from "@/components/Button";
 import useNFTs from "@/hooks/useNFTs";
 import { FCC } from "@/types";
 import ActionCard from "./ActionCard";
+import LoadingNFT from "./LoadingNFT";
+import { INFT } from "@/apis/types";
 
 const LiveAuctions: FCC = () => {
   const { loading, nfts } = useNFTs();
@@ -17,11 +19,12 @@ const LiveAuctions: FCC = () => {
           </p>
         </div>
         <div className="flex flex-row w-full justify-between gap-16 flex-wrap ">
-          {Array.from({ length: 8 })
-            .fill(0)
-            .map((v, i) => (
-              <ActionCard key={i} />
-            ))}
+          {!loading &&
+            Array.from({ length: 8 })
+              .fill(0)
+              .map((v, i) => <LoadingNFT key={i} />)}
+          {!!nfts &&
+            nfts.map((v: INFT, i: number) => <ActionCard {...v} key={i} />)}
         </div>
         <Button className="text-lg px-8">Load more</Button>
       </div>

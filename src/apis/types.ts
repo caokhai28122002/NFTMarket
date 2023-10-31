@@ -21,3 +21,14 @@ export interface IFormNFTData {
   description: string;
   price: number;
 }
+
+export interface INFT {
+  name: string;
+  description: string;
+  image: string;
+  createdAt: string;
+  price: number;
+  tokenId: number | string;
+  seller: string;
+  owner: string;
+}

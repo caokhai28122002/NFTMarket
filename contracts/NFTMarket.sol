@@ -134,4 +134,10 @@ contract NFTMarket is ERC721URIStorage {
 
         return items;
     }
+
+    function NFTByTokenID(
+        uint256 tokenId
+    ) public view returns (MarketItem memory) {
+        return idToMarketItem[tokenId];
+    }
 }

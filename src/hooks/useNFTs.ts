@@ -3,15 +3,16 @@ import useContract from "./useContract";
 import axios from "axios";
 import { ethers } from "ethers";
 import toast from "react-hot-toast";
+import { INFT } from "@/apis/types";
 
 const useNFTs = () => {
   const { contract } = useContract();
   const [loading, setLoading] = useState(true);
-  const [nfts, setNFTs] = useState<any>([]);
+  const [nfts, setNFTs] = useState<INFT[]>([]);
   const loadNFTs = useCallback(async () => {
     try {
       const data = await contract?.fetchMarketItems.staticCall();
-      const items = await Promise.all(
+      const items: INFT[] = await Promise.all(
         data.map(async (i: any) => {
           const tokenUri = await contract?.tokenURI(i.tokenId);
 
@@ -22,14 +23,15 @@ const useNFTs = () => {
           let price = ethers.formatUnits(i.price.toString(), "wei");
 
           return {
-            price,
+            price: Number(price),
             tokenId: Number(i.tokenId),
             seller: i.seller,
             owner: i.owner,
             image: meta.data.image,
             name: meta.data.name,
             description: meta.data.description,
-          };
+            createdAt: meta.data.createdAt,
+          } as INFT;
         })
       );
       setNFTs(items);

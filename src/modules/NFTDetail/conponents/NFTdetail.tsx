@@ -1,71 +1,45 @@
 import Symbol from "@/icons/Symbol";
 
+import Avatar from "@/components/Avatar";
+import useNFTs from "@/hooks/useNFTByTokenID";
 import Eye from "@/icons/Eye";
+import { cutString } from "@/libraries/utils";
 import { FCC } from "@/types";
-import React, { useEffect, useState } from "react";
 import clsx from "clsx";
+import { useRouter } from "next/router";
+import { useState } from "react";
 
 type Props = {};
 
 const NFTDetail: FCC = (props: Props) => {
-  const [time, setTime] = useState({
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-    milliseconds: 0,
-  });
+  const { query } = useRouter();
+  const { nft } = useNFTs(String(query.id));
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      // Cập nhật thời gian sau mỗi mili giây (1 giây = 1000 mili giây)
-      const newMilliseconds = (time.milliseconds + 1) % 1000;
-      const newSeconds =
-        (time.seconds + Math.floor((time.milliseconds + 1) / 1000)) % 60;
-      const newMinutes =
-        (time.minutes + Math.floor((time.seconds + 1) / 60)) % 60;
-      const newHours = time.hours + Math.floor((time.minutes + 1) / 60);
-
-      setTime({
-        hours: newHours,
-        minutes: newMinutes,
-        seconds: newSeconds,
-        milliseconds: newMilliseconds,
-      });
-    }, 1); // Cập nhật mỗi 1 mili giây
-
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, [time]);
   const [count, setCount] = useState(0);
   const [love, setlove] = useState(0);
-  const [data, setData] = useState({
-    nameOwned: "Ralph Garraway",
-    nameCreated: "Freddie Carpenter",
-    dateTime: new Date(),
-    ETH: "4.89 ETH",
-    time: "8 hours ago",
-  });
+
   const action = {
     Artist: "Ralph Garraway",
     Size: "3000 x 3000",
     Create: "04 April , 2021",
     Collection: "Cyberpunk City Art",
-    context:
-      "Habitant sollicitudin faucibus cursus lectus pulvinar dolor nonultrices eget. Facilisi lobortisal morbi fringilla urna amet sedipsum vitae ipsum malesuada. Habitant sollicitudin faucibus cursuslectus pulvinar dolor non ultrices eget. Facilisi lobortisal morbifringilla urna amet sed ipsum",
   };
   const menuItems = ["Bid History", "Info", "Provenance"];
   const [activeMenuItem, setActiveMenuItem] = useState<number | null>(null);
   return (
-    <div className="h-full w-full flex justify-center items-center py-16">
+    <div className="h-full min-h-[calc(100vh-256px)] w-full flex justify-center items-center py-16">
       <div className="container max-w-screen-2xl grid grid-cols-12 gap-12">
         <div className="col-span-12 xl:col-span-6">
-          <img src="/images/Flower.png" alt="banner image" />
+          <img
+            src={nft?.image ?? ""}
+            className="w-full aspect-square rounded-xl"
+            alt="banner image"
+          />
         </div>
         <div className="col-span-12 xl:col-span-6 items-center lg:items-start flex flex-col gap-6">
           <div className="flex flex-row w-full items-center gap-2 justify-between">
             <p className="text-white font-bold text-[24px] uppercase ">
-              “The Pretty Fantasy Flower illu…
+              {nft?.name}
             </p>
             <div className="flex space-x-1">
               <button
@@ -95,60 +69,58 @@ const NFTDetail: FCC = (props: Props) => {
           </div>
           <div className="flex flex-row  w-full space-x-8 gap-y-2">
             <div className="flex flex-row items-center gap-3 px-2 w-full h-[68px] border rounded-2xl border-[#343444] bg-[#343444]">
-              <img
-                className="rounded-2xl"
-                src="/images/avatar.png"
-                alt="avatar"
+              <Avatar
+                username={nft?.owner ?? ""}
+                className="w-12 h-12 border rounded-xl"
               />
               <div className="flex flex-col w-full">
-                {" "}
                 <a className="text-[#8A8AA0] text-sm">Owned By</a>
-                <a className="text-lg text-white">{data.nameOwned}</a>
+                <a className="text-lg text-white">{cutString(nft?.owner, 7)}</a>
               </div>
             </div>
             <div className="flex flex-row items-center gap-3 px-2 w-full h-[68px] border rounded-2xl border-[#343444] bg-[#343444] ">
-              <img
-                className="rounded-2xl"
-                src="/images/avatar.png"
-                alt="avatar"
+              <Avatar
+                username={nft?.seller ?? ""}
+                className="w-12 h-12 border rounded-xl"
               />
               <div className="flex flex-col w-full">
-                {" "}
-                <a className="text-[#8A8AA0] text-sm">Create By</a>
-                <a className="text-lg text-white">{data.nameCreated}</a>
+                <a className="text-[#8A8AA0] text-sm">Seller By</a>
+                <a className="text-lg text-white">
+                  {cutString(nft?.seller, 7)}
+                </a>
               </div>
             </div>
           </div>
-          <a className="text-white text-sm font-normal w-full h-[65px]">
-            {action.context}
+          <a className="text-white text-sm font-normal w-full min-h-[65px]">
+            {nft?.description}
           </a>
           <div className="grid w-full grid-cols-2 gap-6">
             <div className="text-white flex flex-col bg-[#343444] border rounded-lg border-[#343444] p-4">
               <a className="p-2">
-                Artist :{" "}
+                Artist :
                 <span className="font-semibold text-base">{action.Artist}</span>
               </a>
               <a className="p-2">
-                Size :{" "}
+                Size :
                 <span className="font-semibold text-base">{action.Size}</span>
               </a>
               <a className="p-2">
-                Create :{" "}
-                <span className="font-semibold text-base">{action.Create}</span>
+                Create :
+                <span className="font-semibold text-base">
+                  {new Date(nft?.createdAt ?? "").toDateString()}
+                </span>
               </a>
               <a className="p-2">
-                Collection :{" "}
+                Collection :
                 <span className="font-semibold text-base">{action.Artist}</span>
               </a>
             </div>
             <div className="grid grid-rows-2 gap-4">
               <div className="flex items-center text-white bg-[#343444] border rounded-lg border-[#343444] justify-between p-4 px-6">
                 Current Bid
-                <a className="">{data.ETH}</a>
+                <a className="">{nft?.price} ETH</a>
               </div>
-              <div className="text-white bg-[#343444] border rounded-lg border-[#343444] flex justify-center items-center font-bold text-2xl p-4 px-6">
-                <p>   {time.hours.toString().padStart(2, '0')}:{time.minutes.toString().padStart(2, '0')}:{time.seconds.toString().padStart(2, '0')}</p>
-              </div>
+              <div className="text-white bg-[#343444] border rounded-lg border-[#343444] flex justify-center items-center font-bold text-2xl p-4 px-6"></div>
             </div>
           </div>
           <button className="flex w-full h-[50px] justify-center items-center border rounded-full text-white hover:bg-[#E250E5] hover:ring-2 hover:ring-white">
@@ -164,7 +136,6 @@ const NFTDetail: FCC = (props: Props) => {
                 onMouseEnter={() => setActiveMenuItem(index)}
                 onMouseLeave={() => setActiveMenuItem(null)}
               >
-                {" "}
                 {item}
               </a>
             ))}
@@ -172,17 +143,16 @@ const NFTDetail: FCC = (props: Props) => {
 
           <div className="text-white flex justify-between w-full h-[68px] pb-2 border-b-[1px] border-b-[#1F1F2C]">
             <div className="text-[15px] flex flex-row gap-2 items-center">
-              <img
-                className="rounded-2xl"
-                src="/images/avatar.png"
-                alt="avatar"
+              <Avatar
+                username={nft?.seller ?? ""}
+                className="w-12 h-12 border rounded-xl"
               />
               <div className="flex flex-col">
-                <a className="h-[21px] w-[125px]">{data.nameCreated}</a>{" "}
-                <a>{data.time}</a>
+                <a className="h-[21px] w-[125px]">{cutString(nft?.seller)}</a>{" "}
+                <a>{new Date(nft?.createdAt ?? "").toDateString()}</a>
               </div>
             </div>
-            <a className="px-2">{data.ETH}</a>
+            <a className="px-2">{nft?.price} ETH</a>
           </div>
         </div>
       </div>

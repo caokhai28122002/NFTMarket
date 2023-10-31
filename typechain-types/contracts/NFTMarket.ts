@@ -50,6 +50,7 @@ export declare namespace NFTMarket {
 export interface NFTMarketInterface extends Interface {
   getFunction(
     nameOrSignature:
+      | "NFTByTokenID"
       | "approve"
       | "balanceOf"
       | "createMarketSale"
@@ -80,6 +81,10 @@ export interface NFTMarketInterface extends Interface {
       | "Transfer"
   ): EventFragment;
 
+  encodeFunctionData(
+    functionFragment: "NFTByTokenID",
+    values: [BigNumberish]
+  ): string;
   encodeFunctionData(
     functionFragment: "approve",
     values: [AddressLike, BigNumberish]
@@ -147,6 +152,10 @@ export interface NFTMarketInterface extends Interface {
     values: [AddressLike, AddressLike, BigNumberish]
   ): string;
 
+  decodeFunctionResult(
+    functionFragment: "NFTByTokenID",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "approve", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
   decodeFunctionResult(
@@ -360,6 +369,12 @@ export interface NFTMarket extends BaseContract {
     event?: TCEvent
   ): Promise<this>;
 
+  NFTByTokenID: TypedContractMethod<
+    [tokenId: BigNumberish],
+    [NFTMarket.MarketItemStructOutput],
+    "view"
+  >;
+
   approve: TypedContractMethod<
     [to: AddressLike, tokenId: BigNumberish],
     [void],
@@ -449,6 +464,13 @@ export interface NFTMarket extends BaseContract {
     key: string | FunctionFragment
   ): T;
 
+  getFunction(
+    nameOrSignature: "NFTByTokenID"
+  ): TypedContractMethod<
+    [tokenId: BigNumberish],
+    [NFTMarket.MarketItemStructOutput],
+    "view"
+  >;
   getFunction(
     nameOrSignature: "approve"
   ): TypedContractMethod<
