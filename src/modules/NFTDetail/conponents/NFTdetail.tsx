@@ -18,7 +18,7 @@ type Props = {};
 const NFTDetail: FCC = (props: Props) => {
   const { query, push } = useRouter();
   const { nft, loading } = useNFTs(String(query.id));
-
+  
   const { mutate, isDisable } = useBuyNFT(nft);
 
   const [love, setLove] = useState(0);
@@ -122,7 +122,7 @@ const NFTDetail: FCC = (props: Props) => {
             <div className="grid grid-rows-2 gap-4">
               <div className="flex items-center text-white bg-[#343444] border rounded-lg border-[#343444] justify-between p-4 px-6">
                 Current Bid
-                <a className="">{nft?.price} ETH</a>
+                <a className="">{nft?.price} BNB</a>
               </div>
               <div className="text-white bg-[#343444] border rounded-lg border-[#343444] flex justify-center items-center font-bold text-2xl p-4 px-6">
                 <TimeLive lastTime={new Date(nft?.createdAt ?? "").getTime()} />
@@ -162,7 +162,7 @@ const NFTDetail: FCC = (props: Props) => {
                 <a>{new Date(nft?.createdAt ?? "").toDateString()}</a>
               </div>
             </div>
-            <a className="px-2">{nft?.price} ETH</a>
+            <a className="px-2">{nft?.price} BNB</a>
           </div>
         </div>
       </div>

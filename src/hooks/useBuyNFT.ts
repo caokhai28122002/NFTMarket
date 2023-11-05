@@ -23,7 +23,7 @@ const useBuyNFT = (nft?: INFT) => {
 
   const mutate = useCallback(async () => {
     try {
-      const price = ethers.parseUnits(nft?.price.toString()??'0', "wei");
+      const price = ethers.parseEther(nft?.price.toString() ?? '0');
       const transaction = await contract?.createMarketSale(nft?.tokenId, {
         value: price,
       });

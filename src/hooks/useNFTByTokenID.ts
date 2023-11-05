@@ -18,7 +18,7 @@ const useNFTByTokenID = (tokenId: string) => {
       //   "https://teal-rainy-fly-99.mypinata.cloud/ipfs/QmNvyzER1Hr9yZs7qabnAV1ii2LHAmbGFsqJ89B2Refm5Z";
       //to do update to token uri
       const meta = await axios.get(tokenUri);
-      let price = ethers.formatUnits(data.price.toString(), "wei");
+      const price = ethers.formatEther(data.price.toString());
 
       setNFT({
         price: Number(price),

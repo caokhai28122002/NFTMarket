@@ -10,7 +10,8 @@ const useMintNFT = () => {
   const createSale = useCallback(
     async (url: string, price: string) => {
       try {
-        let transaction = await contract?.createToken(url, price, {
+        const unitPrice = ethers.parseEther(price)
+        let transaction = await contract?.createToken(url, unitPrice, {
           value: ethers.parseUnits("0", "wei"),
         });
         await transaction.wait();

@@ -71,7 +71,7 @@ const MintNFT = (props: Props) => {
               name="price"
               label="Price"
               type="number"
-              placeholder="10 ETH"
+              placeholder="10 BNB"
             />
             <button
               disabled={loading}
