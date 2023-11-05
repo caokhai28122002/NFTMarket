@@ -1,6 +1,6 @@
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
-const privateKey = "0ac8b3c67345b4c137f13037c5093793120e76d18c6691f42ada3a2668cc170d";
+const privateKey = process.env.PRIVATE_WALLET_KEY as string;
 
 const config: HardhatUserConfig = {
   networks: {
