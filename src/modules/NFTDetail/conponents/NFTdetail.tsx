@@ -19,7 +19,7 @@ const NFTDetail: FCC = (props: Props) => {
   const { query, push } = useRouter();
   const { nft, loading } = useNFTs(String(query.id));
 
-  const { mutate, isDisable } = useBuyNFT(nft!);
+  const { mutate, isDisable } = useBuyNFT(nft);
 
   const [love, setLove] = useState(0);
 

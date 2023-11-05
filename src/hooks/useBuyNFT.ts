@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import useAccount from "./useAccount";
 import useContract from "./useContract";
 
-const useBuyNFT = (nft: INFT) => {
+const useBuyNFT = (nft?: INFT) => {
   const { contract } = useContract();
   const { account, request } = useAccount();
   const [loading, setLoading] = useState(true);
@@ -16,15 +16,15 @@ const useBuyNFT = (nft: INFT) => {
 
   const isDisable = useMemo(
     () =>
-      nft.owner.toLowerCase() === account.toLowerCase() ||
-      nft.seller.toLowerCase() === account.toLowerCase(),
-    [account, nft.owner, nft.seller]
+      nft?.owner.toLowerCase() === account.toLowerCase() ||
+      nft?.seller.toLowerCase() === account.toLowerCase(),
+    [account, nft?.owner, nft?.seller]
   );
 
   const mutate = useCallback(async () => {
     try {
-      const price = ethers.parseUnits(nft.price.toString(), "wei");
-      const transaction = await contract?.createMarketSale(nft.tokenId, {
+      const price = ethers.parseUnits(nft?.price.toString()??'0', "wei");
+      const transaction = await contract?.createMarketSale(nft?.tokenId, {
         value: price,
       });
       await transaction.wait();
@@ -35,7 +35,7 @@ const useBuyNFT = (nft: INFT) => {
     } finally {
       setLoading(false);
     }
-  }, [contract, nft.price, nft.tokenId]);
+  }, [contract, nft?.price, nft?.tokenId]);
 
   return useMemo(
     () => ({
