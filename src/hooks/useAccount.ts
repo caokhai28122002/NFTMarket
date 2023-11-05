@@ -4,11 +4,11 @@ const useAccount = () => {
   const [account, setAccount] = useState("");
   const request = useCallback(async () => {
     try {
-      const [account] = await window.ethereum.request({
+      const [walletAddress] = await window.ethereum.request({
         method: "eth_requestAccounts",
       });
 
-      setAccount(account);
+      setAccount(walletAddress);
     } catch {}
   }, []);
 

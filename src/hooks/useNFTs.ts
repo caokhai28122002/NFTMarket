@@ -11,6 +11,7 @@ const useNFTs = () => {
   const [nfts, setNFTs] = useState<INFT[]>([]);
   const loadNFTs = useCallback(async () => {
     try {
+      setLoading(true);
       const data = await contract?.fetchMarketItems.staticCall();
       const items: INFT[] = await Promise.all(
         data.map(async (i: any) => {
@@ -36,6 +37,7 @@ const useNFTs = () => {
       );
       setNFTs(items);
     } catch (error) {
+      console.log(error);
     } finally {
       setLoading(false);
     }
