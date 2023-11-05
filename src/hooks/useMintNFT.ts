@@ -1,12 +1,28 @@
-import { IPayloadUploadImage } from "@/apis/types";
-import { uploadImage } from "@/apis/uploads";
-import { useMutation } from "react-query";
+import { useCallback, useMemo } from "react";
+import toast from "react-hot-toast";
+import useContract from "./useContract";
 
-type Props = IPayloadUploadImage & {};
+import { ethers } from "ethers";
 
-const useMintNFT = (props: Props) => {
-  const { mutate, data ,error} = useMutation(uploadImage);
-  return {};
+const useMintNFT = () => {
+  const { contract } = useContract();
+
+  const createSale = useCallback(
+    async (url: string, price: string) => {
+      try {
+        let transaction = await contract?.createToken(url, price, {
+          value: ethers.parseUnits("0", "wei"),
+        });
+        await transaction.wait();
+        toast.success("Your NFT has been listed.");
+      } catch (e) {
+        console.error(e);
+        toast.error("Error went execute transaction");
+      }
+    },
+    [contract]
+  );
+  return useMemo(() => ({ createSale }), [createSale]);
 };
 
 export default useMintNFT;

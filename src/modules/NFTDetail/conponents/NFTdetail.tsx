@@ -18,18 +18,14 @@ type Props = {};
 const NFTDetail: FCC = (props: Props) => {
   const { query, push } = useRouter();
   const { nft, loading } = useNFTs(String(query.id));
-  console.log(loading);
 
-  const { account, request } = useAccount();
-  const { mutate } = useBuyNFT();
-  request();
+  const { mutate, isDisable } = useBuyNFT(nft!);
 
-  const [love, setlove] = useState(0);
+  const [love, setLove] = useState(0);
 
   const action = {
     Artist: "Ralph Garraway",
     Size: "3000 x 3000",
-    Create: "04 April , 2021",
     Collection: "Cyberpunk City Art",
   };
   const menuItems = ["Bid History", "Info", "Provenance"];
@@ -67,7 +63,7 @@ const NFTDetail: FCC = (props: Props) => {
                   }
                 )}
                 onClick={() => {
-                  setlove((prev) => prev + 1);
+                  setLove((prev) => prev + 1);
                 }}
               >
                 <Symbol />
@@ -134,9 +130,9 @@ const NFTDetail: FCC = (props: Props) => {
             </div>
           </div>
           <button
-            onClick={() => mutate(nft!)}
-            disabled={nft?.seller.toLowerCase() === account.toLowerCase()}
-            className="flex w-full h-[50px] justify-center disabled:bg-slate-400 disabled:hover:ring-0 items-center border rounded-full text-white hover:bg-[#E250E5] hover:ring-2 hover:ring-white"
+            onClick={mutate}
+            disabled={isDisable}
+            className="flex w-full h-[50px] justify-center disabled:bg-slate-400 disabled:cursor-not-allowed disabled:hover:ring-0 items-center border rounded-full text-white hover:bg-[#E250E5] hover:ring-2 hover:ring-white"
           >
             Place a bid
           </button>

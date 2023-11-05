@@ -1,37 +1,50 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
-import useContract from "./useContract";
-import axios from "axios";
-import { ethers } from "ethers";
-import toast from "react-hot-toast";
 import { INFT } from "@/apis/types";
+import { ethers } from "ethers";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import toast from "react-hot-toast";
+import useAccount from "./useAccount";
+import useContract from "./useContract";
 
-const useBuyNFT = () => {
+const useBuyNFT = (nft: INFT) => {
   const { contract } = useContract();
+  const { account, request } = useAccount();
   const [loading, setLoading] = useState(true);
-  const mutate = useCallback(
-    async (nft: INFT) => {
-      try {
-        const price = ethers.parseUnits(nft.price.toString(), "wei");
-        const transaction = await contract?.createMarketSale(nft.tokenId, {
-          value: price,
-        });
-        await transaction.wait();
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setLoading(false);
-      }
-    },
-    [contract]
+
+  useEffect(() => {
+    request();
+  }, [request]);
+
+  const isDisable = useMemo(
+    () =>
+      nft.owner.toLowerCase() === account.toLowerCase() ||
+      nft.seller.toLowerCase() === account.toLowerCase(),
+    [account, nft.owner, nft.seller]
   );
+
+  const mutate = useCallback(async () => {
+    try {
+      const price = ethers.parseUnits(nft.price.toString(), "wei");
+      const transaction = await contract?.createMarketSale(nft.tokenId, {
+        value: price,
+      });
+      await transaction.wait();
+      toast.success("Your buy NFT successfully");
+    } catch (error) {
+      console.error(error);
+      toast.error("Error execute transaction");
+    } finally {
+      setLoading(false);
+    }
+  }, [contract, nft.price, nft.tokenId]);
 
   return useMemo(
     () => ({
       loading,
       contract,
       mutate,
+      isDisable,
     }),
-    [contract, mutate, loading]
+    [loading, contract, mutate, isDisable]
   );
 };
 

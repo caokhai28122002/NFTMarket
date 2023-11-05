@@ -8,19 +8,17 @@ import ChooseImageField from "./ChooseImageField";
 import TextArea from "./TextArea";
 import TextField from "./TextField";
 
-import { ethers } from "ethers";
-
 import { NFTMarketAddress } from "@/constants";
 import { useRouter } from "next/router";
 import useContract from "@/hooks/useContract";
+import useMintNFT from "@/hooks/useMintNFT";
 
 type Props = {};
 
 const MintNFT = (props: Props) => {
-  const { push } = useRouter();
+  const { createSale } = useMintNFT();
   const [loading, setLoading] = useState(false);
   const [file, setFile] = useState<File | null>(null);
-  const { contract } = useContract();
   const form = useForm({});
 
   const onSubmit = async (data: any) => {
@@ -44,20 +42,6 @@ const MintNFT = (props: Props) => {
       setLoading(false);
     }
   };
-
-  async function createSale(url: string, price: string) {
-    try {
-      let transaction = await contract?.createToken(url, price, {
-        value: ethers.parseUnits("0", "wei"),
-      });
-      await transaction.wait();
-      toast.success("Your NFT has been listed.");
-      push("/");
-    } catch (e) {
-      console.error(e);
-      toast.error("Error went execute transaction");
-    }
-  }
 
   return (
     <div className="container bg-[#E05BFF10] ring-4 ring-[#E05BFF40] py-6 rounded-xl bg-opacity-50 px-10 my-20">
