@@ -5,7 +5,8 @@ import { FCC } from "@/types";
 import React from "react";
 
 const MyInfo: FCC = () => {
-  const { account } = useAccount();
+  const { account, request } = useAccount();
+  request();
 
   return (
     <div className="flex flex-row items-center gap-3 px-4 py-8 w-full ">

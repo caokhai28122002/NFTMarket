@@ -85,7 +85,6 @@ contract NFTMarket is ERC721URIStorage {
 
         idToMarketItem[tokenId].owner = payable(msg.sender);
         idToMarketItem[tokenId].sold = true;
-        idToMarketItem[tokenId].owner = payable(address(0));
 
         _itemsSold.increment();
 
