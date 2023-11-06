@@ -22,9 +22,8 @@ const useMyNFTs = () => {
           //to do update to token uri
           const meta = await axios.get(tokenUri);
           const price = ethers.formatEther(i.price.toString());
-
           return {
-            price: Number(price),
+            price: price,
             tokenId: Number(i.tokenId),
             seller: i.seller,
             owner: i.owner,

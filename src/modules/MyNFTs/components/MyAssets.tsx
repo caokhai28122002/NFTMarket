@@ -18,7 +18,7 @@ const MyAssets: FCC = () => {
           </p>
         </div>
         <div className="grid grid-flow-row xl:gap-12 gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
-          {!loading &&
+          {loading &&
             Array.from({ length: 8 })
               .fill(0)
               .map((v, i) => <LoadingNFT key={i} />)}

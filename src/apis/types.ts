@@ -27,7 +27,7 @@ export interface INFT {
   description: string;
   image: string;
   createdAt: string;
-  price: number;
+  price: number | string;
   tokenId: number | string;
   seller: string;
   owner: string;

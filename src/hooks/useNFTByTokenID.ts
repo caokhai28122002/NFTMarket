@@ -22,7 +22,7 @@ const useNFTByTokenID = (tokenId: string) => {
       const price = ethers.formatEther(data.price.toString());
 
       setNFT({
-        price: Number(price),
+        price: price,
         tokenId: Number(data.tokenId),
         seller: data.seller,
         owner: data.owner,
