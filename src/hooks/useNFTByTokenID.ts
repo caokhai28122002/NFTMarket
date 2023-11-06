@@ -11,6 +11,7 @@ const useNFTByTokenID = (tokenId: string) => {
   const [nft, setNFT] = useState<INFT>();
   const call = useCallback(async () => {
     try {
+      setLoading(true);
       const data = await contract?.NFTByTokenID(ethers.getUint(tokenId));
       const tokenUri = await contract?.tokenURI(data.tokenId);
 

@@ -86,7 +86,7 @@ const Slide: FCC<IProps> = ({
         >
           <AnimatedText
             text={title}
-            textClassName="font-extrabold text-[100px] leading-tight text-white"
+            textClassName="font-extrabold text-3xl md:text-[32px] lg:text-[50px] xl:text-[71px] 2xl:text-[100px] leading-tight text-white"
           />
           <motion.div
             variants={variants}

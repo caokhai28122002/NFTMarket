@@ -12,19 +12,19 @@ const HeroSection: FCC = (props: Props) => {
       <div className="grid grid-cols-12 gap-4">
         <div className="col-span-12 xl:col-span-5 items-center lg:items-start">
           <div className="flex flex-col w-full xl:w-fit items-center gap-6">
-            <p className="text-white text-center font-bold text-[42px] xl:text-[71px] uppercase">
+            <p className="text-white text-center font-bold text-[42px] xl:text-[62px] uppercase">
               CREATE YOUR <br className="hidden xl:block" />
               CUSTOM <br /> WORKSPACE.
             </p>
-            <p className="text-[23px] text-white text-center uppercase">
+            <p className="text-xl text-white text-center uppercase">
               IN A BUILDING OR LARGE VEHICLE, LIKE
               <br className="hidden sm:block" />A SHIP, A ROOM TO WHICH ENTRY
             </p>
             <div className="flex flex-col gap-6">
               <div className="flex flex-row items-center gap-4">
-                <Upgrade className="w-16 h-16 lg:w-24 lg:h-24" />
+                <Upgrade className="w-16 h-16 lg:w-20 lg:h-20" />
                 <div className="text flex flex-col">
-                  <p className="text-lg xl:text-3xl text-white font-bold">
+                  <p className="text-lg xl:text-2xl text-white font-bold">
                     UPGRADEABLE
                   </p>
                   <p className="text-base lg:text-lg text-white font-medium">
@@ -33,9 +33,9 @@ const HeroSection: FCC = (props: Props) => {
                 </div>
               </div>
               <div className="flex flex-row items-center gap-4">
-                <MonthlyIncome className="w-16 h-16 lg:w-24 lg:h-24" />
+                <MonthlyIncome className="w-16 h-16 lg:w-20 lg:h-20" />
                 <div className="text flex flex-col">
-                  <p className="text-lg xl:text-3xl text-white font-bold">
+                  <p className="text-lg xl:text-2xl text-white font-bold">
                     0.417%
                   </p>
                   <p className="text-base lg:text-lg text-white font-medium">

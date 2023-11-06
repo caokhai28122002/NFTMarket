@@ -26,9 +26,11 @@ const Header = (props: Props) => {
   return (
     <div className="w-full h-32 bg-[#2B0D34] flex flex-1 justify-center">
       <div className="w-10/12 flex justify-between items-center">
-        <div className="uppercase text-5xl font-bold text-white">
-          NFT-<span className="text-[#E05BFF]">MARKETPLACE</span>
-        </div>
+        <Link href="/">
+          <div className="uppercase text-5xl font-bold text-white">
+            NFT-<span className="text-[#E05BFF]">H Chain</span>
+          </div>
+        </Link>
         <div className="flex justify-end items-center space-x-3">
           {MENU.map((item) => (
             <Link href={item.path} key={item.name}>

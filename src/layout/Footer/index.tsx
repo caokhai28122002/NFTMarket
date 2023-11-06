@@ -38,7 +38,7 @@ const Footer = (props: Props) => {
     <div className="w-full h-32 border-[#FFFFFF4F] bg-[#3D054A] border-t-2 flex flex-col justify-center items-center relative">
       <div className="w-10/12 flex justify-between items-center">
         <div className="uppercase text-5xl font-bold text-white">
-          A-<span className="text-[#E05BFF]">ROOM</span>
+          NFT-<span className="text-[#E05BFF]">H Chain</span>
         </div>
         <div className="flex justify-end items-center space-x-3"></div>
         <div className="flex justify-between items-center gap-2">
@@ -52,7 +52,7 @@ const Footer = (props: Props) => {
           Privacy Policy Terms & Conditions Shipping Policy
         </div>
         <div className="text-white text-sm">
-          © BY A-ROOM ALL RIGHT RESERVED 2023!
+          © BY NFT-H Chain ALL RIGHT RESERVED 2023!
         </div>
         <div className="text-white text-sm">02 8338 8690 02 8338 9063</div>
       </div>

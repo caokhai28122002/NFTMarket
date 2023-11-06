@@ -1,10 +1,9 @@
-import Button from "@/components/Button";
-import useNFTs from "@/hooks/useNFTs";
-import { FCC } from "@/types";
 import { INFT } from "@/apis/types";
-import LoadingNFT from "@/modules/NFTs/components/LoadingNFT";
-import ActionCard from "@/modules/NFTs/components/ActionCard";
+import Button from "@/components/Button";
 import useMyNFTs from "@/hooks/useMyNFTs";
+import ActionCard from "@/modules/NFTs/components/ActionCard";
+import LoadingNFT from "@/modules/NFTs/components/LoadingNFT";
+import { FCC } from "@/types";
 
 const MyAssets: FCC = () => {
   const { loading, nfts } = useMyNFTs();
@@ -18,8 +17,8 @@ const MyAssets: FCC = () => {
             EXPLORE MORE
           </p>
         </div>
-        <div className="flex flex-row w-full justify-between gap-16 flex-wrap ">
-          {loading &&
+        <div className="grid grid-flow-row xl:gap-12 gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+          {!loading &&
             Array.from({ length: 8 })
               .fill(0)
               .map((v, i) => <LoadingNFT key={i} />)}

@@ -18,7 +18,7 @@ const LiveAuctions: FCC = () => {
             EXPLORE MORE
           </p>
         </div>
-        <div className="flex flex-row w-full justify-between gap-16 flex-wrap ">
+        <div className="grid grid-flow-row xl:gap-12 gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
           {loading &&
             Array.from({ length: 8 })
               .fill(0)

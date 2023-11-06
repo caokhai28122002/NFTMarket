@@ -1,9 +1,8 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
-import useContract from "./useContract";
+import { INFT } from "@/apis/types";
 import axios from "axios";
 import { ethers } from "ethers";
-import toast from "react-hot-toast";
-import { INFT } from "@/apis/types";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import useContract from "./useContract";
 
 const useNFTs = () => {
   const { contract } = useContract();
