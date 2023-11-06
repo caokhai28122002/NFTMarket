@@ -12,6 +12,7 @@ import clsx from "clsx";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import TimeLive from "./TimeLive";
+import NFTLoading from "./NFTLoading";
 
 type Props = {};
 
@@ -30,6 +31,10 @@ const NFTDetail: FCC = (props: Props) => {
   };
   const menuItems = ["Bid History", "Info", "Provenance"];
   const [activeMenuItem, setActiveMenuItem] = useState<number | null>(null);
+
+  if (loading) {
+    return <NFTLoading />;
+  }
 
   if (!loading && !nft) {
     return <Custom404 />;
