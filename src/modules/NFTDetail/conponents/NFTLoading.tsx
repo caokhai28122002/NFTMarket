@@ -19,7 +19,7 @@ const NFTLoading: FCC = (props: Props) => {
   return (
     <div className="h-full min-h-[calc(100vh-256px)] w-full flex justify-center items-center py-16">
       <div className="container max-w-screen-2xl grid grid-cols-12 gap-12">
-        <div className="col-span-12 animate-pulse xl:col-span-6 bg-gray-300 justify-center items-center flex rounded-xl">
+        <div className="col-span-12 aspect-square animate-pulse xl:col-span-6 bg-gray-300 justify-center items-center flex rounded-xl">
           <svg
             className="w-32 h-32 text-gray-400 dark:text-gray-600"
             aria-hidden="true"
