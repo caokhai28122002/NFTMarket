@@ -1,17 +1,5 @@
-import Symbol from "@/icons/Symbol";
 
-import Avatar from "@/components/Avatar";
-import useAccount from "@/hooks/useAccount";
-import useBuyNFT from "@/hooks/useBuyNFT";
-import useNFTs from "@/hooks/useNFTByTokenID";
-import Eye from "@/icons/Eye";
-import { cutString } from "@/libraries/utils";
-import Custom404 from "@/pages/404";
 import { FCC } from "@/types";
-import clsx from "clsx";
-import { useRouter } from "next/router";
-import { useState } from "react";
-import TimeLive from "./TimeLive";
 
 type Props = {};
 
@@ -19,9 +7,9 @@ const NFTLoading: FCC = (props: Props) => {
   return (
     <div className="h-full min-h-[calc(100vh-256px)] w-full flex justify-center items-center py-16">
       <div className="container max-w-screen-2xl grid grid-cols-12 gap-12">
-        <div className="col-span-12 aspect-square animate-pulse xl:col-span-6 bg-gray-300 justify-center items-center flex rounded-xl">
+        <div className="col-span-12 aspect-square animate-pulse xl:col-span-6 bg-gray-400 justify-center items-center flex rounded-xl">
           <svg
-            className="w-32 h-32 text-gray-400 dark:text-gray-600"
+            className="w-32 h-32 text-gray-500 dark:text-gray-600"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -33,55 +21,55 @@ const NFTLoading: FCC = (props: Props) => {
         </div>
         <div className="col-span-12 xl:col-span-6 items-center lg:items-start flex flex-col gap-6">
           <div className="flex flex-row animate-pulse w-full items-center gap-2 justify-between">
-            <div className="h-7 w-[60%] bg-gray-300 rounded-md dark:bg-gray-700"></div>
+            <div className="h-7 w-[60%] bg-gray-400 rounded-md dark:bg-gray-700"></div>
             <div className="flex space-x-1">
-              <div className="h-8 w-16 bg-gray-300 dark:bg-gray-700 rounded-full"></div>
-              <div className="h-8 w-16 bg-gray-300 dark:bg-gray-700 rounded-full"></div>
+              <div className="h-8 w-16 bg-gray-400 dark:bg-gray-700 rounded-full"></div>
+              <div className="h-8 w-16 bg-gray-400 dark:bg-gray-700 rounded-full"></div>
             </div>
           </div>
           <div className="flex flex-row  w-full space-x-8 gap-y-2">
             <div className="animate-pulse flex flex-row items-center gap-3 px-2 w-full h-[68px] border rounded-2xl border-[#343444] bg-[#343444]">
-              <div className="h-12 w-12 bg-gray-300 rounded-xl dark:bg-gray-700"></div>
+              <div className="h-12 w-12 bg-gray-400 rounded-xl dark:bg-gray-700"></div>
               <div className="flex flex-col items-start gap-2">
-                <div className="h-4 w-32 bg-gray-300 rounded-md dark:bg-gray-700"></div>
-                <div className="h-4 w-32 bg-gray-300 rounded-md dark:bg-gray-700"></div>
+                <div className="h-4 w-32 bg-gray-400 rounded-md dark:bg-gray-700"></div>
+                <div className="h-4 w-32 bg-gray-400 rounded-md dark:bg-gray-700"></div>
               </div>
             </div>
             <div className="animate-pulse flex flex-row items-center gap-3 px-2 w-full h-[68px] border rounded-2xl border-[#343444] bg-[#343444] ">
-              <div className="h-12 w-12 bg-gray-300 rounded-xl dark:bg-gray-700"></div>
+              <div className="h-12 w-12 bg-gray-400 rounded-xl dark:bg-gray-700"></div>
               <div className="flex flex-col items-start gap-2">
-                <div className="h-4 w-32 bg-gray-300 rounded-md dark:bg-gray-700"></div>
-                <div className="h-4 w-32 bg-gray-300 rounded-md dark:bg-gray-700"></div>
+                <div className="h-4 w-32 bg-gray-400 rounded-md dark:bg-gray-700"></div>
+                <div className="h-4 w-32 bg-gray-400 rounded-md dark:bg-gray-700"></div>
               </div>
             </div>
           </div>
           <a className="text-white text-sm font-normal w-full flex flex-col gap-4 animate-pulse">
-            <div className="h-4 w-[100%] bg-gray-300 rounded-md dark:bg-gray-700"></div>
-            <div className="h-4 w-[100%] bg-gray-300 rounded-md dark:bg-gray-700"></div>
-            <div className="h-4 w-[80%] bg-gray-300 rounded-md dark:bg-gray-700"></div>
+            <div className="h-4 w-[100%] bg-gray-400 rounded-md dark:bg-gray-700"></div>
+            <div className="h-4 w-[100%] bg-gray-400 rounded-md dark:bg-gray-700"></div>
+            <div className="h-4 w-[80%] bg-gray-400 rounded-md dark:bg-gray-700"></div>
           </a>
           <div className="grid w-full grid-cols-2 gap-6 animate-pulse">
             <div className="text-white flex flex-col bg-[#343444] border rounded-lg border-[#343444] p-4">
               <a className="p-2">
-                <div className="h-4 w-32 bg-gray-300 rounded-md dark:bg-gray-700"></div>
+                <div className="h-4 w-32 bg-gray-400 rounded-md dark:bg-gray-700"></div>
               </a>
               <a className="p-2">
-                <div className="h-4 w-32 bg-gray-300 rounded-md dark:bg-gray-700"></div>
+                <div className="h-4 w-32 bg-gray-400 rounded-md dark:bg-gray-700"></div>
               </a>
               <a className="p-2">
-                <div className="h-4 w-32 bg-gray-300 rounded-md dark:bg-gray-700"></div>
+                <div className="h-4 w-32 bg-gray-400 rounded-md dark:bg-gray-700"></div>
               </a>
               <a className="p-2">
-                <div className="h-4 w-32 bg-gray-300 rounded-md dark:bg-gray-700"></div>
+                <div className="h-4 w-32 bg-gray-400 rounded-md dark:bg-gray-700"></div>
               </a>
             </div>
             <div className="grid grid-rows-2 gap-4">
               <div className="animate-pulse flex items-center text-white bg-[#343444] border rounded-lg border-[#343444] justify-between p-4 px-6">
-                <div className="h-6 w-32 bg-gray-300 rounded-md dark:bg-gray-700"></div>
-                <div className="h-6 w-16 bg-gray-300 rounded-md dark:bg-gray-700"></div>
+                <div className="h-6 w-32 bg-gray-400 rounded-md dark:bg-gray-700"></div>
+                <div className="h-6 w-16 bg-gray-400 rounded-md dark:bg-gray-700"></div>
               </div>
               <div className="animate-pulse text-white bg-[#343444] border rounded-lg border-[#343444] flex justify-center items-center font-bold text-2xl p-4 px-6">
-                <div className="h-6 w-[60%] bg-gray-300 rounded-md dark:bg-gray-700"></div>
+                <div className="h-6 w-[60%] bg-gray-400 rounded-md dark:bg-gray-700"></div>
               </div>
             </div>
           </div>
@@ -94,13 +82,13 @@ const NFTLoading: FCC = (props: Props) => {
 
           <div className="text-white animate-pulse flex justify-between w-full h-[68px] pb-2 border-b-[1px] border-b-[#1F1F2C]">
             <div className="text-[15px] flex flex-row gap-2 items-center">
-              <div className="h-12 w-12 bg-gray-300 rounded-lg dark:bg-gray-700"></div>
+              <div className="h-12 w-12 bg-gray-400 rounded-lg dark:bg-gray-700"></div>
               <div className="flex flex-col items-start gap-2">
-                <div className="h-4 w-32 bg-gray-300 rounded-md dark:bg-gray-700"></div>
-                <div className="h-4 w-32 bg-gray-300 rounded-md dark:bg-gray-700"></div>
+                <div className="h-4 w-32 bg-gray-400 rounded-md dark:bg-gray-700"></div>
+                <div className="h-4 w-32 bg-gray-400 rounded-md dark:bg-gray-700"></div>
               </div>
             </div>
-            <div className="h-4 w-20 bg-gray-300 rounded-md dark:bg-gray-700"></div>
+            <div className="h-4 w-20 bg-gray-400 rounded-md dark:bg-gray-700"></div>
           </div>
         </div>
       </div>

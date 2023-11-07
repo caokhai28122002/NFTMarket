@@ -28,13 +28,13 @@ const TextField: FC<Props> = ({
         <div className="mb-6 w-full">
           <label
             htmlFor={name}
-            className="block mb-2 text-md font-medium text-white"
+            className="block mb-2 text-lg font-medium text-white"
           >
             {label}
           </label>
           <textarea
             name="name"
-            rows={3}
+            rows={5}
             value={field.value}
             onChange={field.onChange}
             className={`ring-blue-500 ring-2 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 bg-[#661B77] placeholder-gray-300 text-white ${className}`}

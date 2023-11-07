@@ -12,11 +12,13 @@ import { NFTMarketAddress } from "@/constants";
 import { useRouter } from "next/router";
 import useContract from "@/hooks/useContract";
 import useMintNFT from "@/hooks/useMintNFT";
+import { useAccount } from "wagmi";
 
 type Props = {};
 
 const MintNFT = (props: Props) => {
   const { createSale } = useMintNFT();
+  const { address } = useAccount();
   const [loading, setLoading] = useState(false);
   const [file, setFile] = useState<File | null>(null);
   const form = useForm({});
@@ -56,7 +58,7 @@ const MintNFT = (props: Props) => {
               }}
             />
           </div>
-          <div className="col-span-12 xl:col-span-7 flex flex-col gap-3">
+          <div className="col-span-12 xl:col-span-7 flex flex-col gap-3 justify-between">
             <TextField
               name="name"
               label="NFT Name"
@@ -74,9 +76,9 @@ const MintNFT = (props: Props) => {
               placeholder="10 BNB"
             />
             <button
-              disabled={loading}
+              disabled={!address || loading}
               type="submit"
-              className="flex disabled:bg-gray-400 w-full h-[50px] justify-center items-center border rounded-full text-white hover:bg-[#E05BFF40] hover:ring-2 hover:ring-white"
+              className="flex disabled:bg-gray-400 w-full h-14 justify-center items-center border rounded-full text-white hover:bg-[#E05BFF40] hover:ring-2 hover:ring-white"
             >
               Mint and Sale Now
             </button>

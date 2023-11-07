@@ -6,11 +6,11 @@ const LoadingNFT = (props: Props) => {
   return (
     <div
       role="status"
-      className="bg-[#34344499] min-w-full w-full animate-pulse h-fit p-4 text-white flex flex-col gap-4 rounded-xl"
+      className="bg-[#34344499] min-w-full w-full shadow-2xl animate-pulse h-fit p-4 text-white flex flex-col gap-4 rounded-xl"
     >
-      <div className="bg-gray-300 w-full h-fit aspect-square flex items-center justify-center dark:bg-gray-700 rounded-xl">
+      <div className="bg-gray-400 w-full h-fit aspect-square flex items-center justify-center dark:bg-gray-700 rounded-xl">
         <svg
-          className="w-10 h-10 text-gray-400 dark:text-gray-600"
+          className="w-10 h-10 text-gray-500 dark:text-gray-600"
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="currentColor"
@@ -20,18 +20,18 @@ const LoadingNFT = (props: Props) => {
           <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z" />
         </svg>
       </div>
-      <div className="h-4 bg-gray-300 rounded-md dark:bg-gray-700 max-w-[360px] "></div>
+      <div className="h-4 bg-gray-400 rounded-md dark:bg-gray-700 max-w-[360px] "></div>
       <div className="w-full flex flex-row justify-between items-center">
         <div className="flex justify-start flex-row items-center gap-2 ">
-          <div className="h-10 w-10 bg-gray-300 rounded-xl dark:bg-gray-700"></div>
+          <div className="h-10 w-10 bg-gray-400 rounded-xl dark:bg-gray-700"></div>
           <div className="flex flex-col items-start gap-2">
-            <div className="h-4 w-28 bg-gray-300 rounded-md dark:bg-gray-700"></div>
-            <div className="h-4 w-28 bg-gray-300 rounded-md dark:bg-gray-700"></div>
+            <div className="h-4 w-28 bg-gray-400 rounded-md dark:bg-gray-700"></div>
+            <div className="h-4 w-28 bg-gray-400 rounded-md dark:bg-gray-700"></div>
           </div>
         </div>
         <div className="flex flex-col items-end gap-2">
-          <div className="h-4 w-20 bg-gray-300 rounded-md dark:bg-gray-700"></div>
-          <div className="h-4 w-20 bg-gray-300 rounded-md dark:bg-gray-700"></div>
+          <div className="h-4 w-20 bg-gray-400 rounded-md dark:bg-gray-700"></div>
+          <div className="h-4 w-20 bg-gray-400 rounded-md dark:bg-gray-700"></div>
         </div>
       </div>
     </div>

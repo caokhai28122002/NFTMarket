@@ -1,7 +1,6 @@
 import Symbol from "@/icons/Symbol";
 
 import Avatar from "@/components/Avatar";
-import useAccount from "@/hooks/useAccount";
 import useBuyNFT from "@/hooks/useBuyNFT";
 import useNFTs from "@/hooks/useNFTByTokenID";
 import Eye from "@/icons/Eye";
@@ -18,9 +17,11 @@ type Props = {};
 
 const NFTDetail: FCC = (props: Props) => {
   const { query } = useRouter();
-  const { nft, loading } = useNFTs(String(query.id));
+  const { nft, loading, refresh } = useNFTs(String(query.id));
 
-  const { mutate, isDisable } = useBuyNFT(nft);
+  const { mutate, isDisable } = useBuyNFT(nft, async () => {
+   await refresh();
+  });
 
   const [love, setLove] = useState(0);
 
@@ -137,7 +138,7 @@ const NFTDetail: FCC = (props: Props) => {
           <button
             onClick={mutate}
             disabled={isDisable}
-            className="flex w-full h-[50px] justify-center disabled:bg-slate-400 disabled:cursor-not-allowed disabled:hover:ring-0 items-center border rounded-full text-white hover:bg-[#E250E5] hover:ring-2 hover:ring-white"
+            className="flex w-full h-[56px] justify-center disabled:bg-slate-400 disabled:cursor-not-allowed disabled:hover:ring-0 items-center border rounded-full text-white hover:bg-[#E250E5] hover:ring-2 hover:ring-white"
           >
             Place a bid
           </button>

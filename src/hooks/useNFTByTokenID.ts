@@ -9,7 +9,7 @@ const useNFTByTokenID = (tokenId: string) => {
   const { contract } = useContract();
   const [loading, setLoading] = useState(true);
   const [nft, setNFT] = useState<INFT>();
-  const call = useCallback(async () => {
+  const refresh = useCallback(async () => {
     try {
       setLoading(true);
       const data = await contract?.NFTByTokenID(ethers.getUint(tokenId));
@@ -39,17 +39,17 @@ const useNFTByTokenID = (tokenId: string) => {
   }, [contract, tokenId]);
 
   useEffect(() => {
-    call();
-  }, [call]);
+    refresh();
+  }, [refresh]);
 
   return useMemo(
     () => ({
       loading,
       nft,
       contract,
-      call,
+      refresh,
     }),
-    [contract, call, loading, nft]
+    [contract, refresh, loading, nft]
   );
 };
 
