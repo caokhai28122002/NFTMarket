@@ -57,18 +57,12 @@ body {
 }
 
 @keyframes bounce4 {
-  0%{
-    transform: translateX(-200%);
+  100%,0%{
+    transform: translateX(200%);
   } 
-  66% {
-    transform: translateY(200%);
-  }
-  33% {
-    transform: translateY(-200%);
-  }
-  100%{
+  50% {
     transform: translateX(-200%);
-  } 
+  }
 }
 .animate-bounce4 {
   animation: bounce4 10s infinite;

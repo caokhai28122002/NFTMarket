@@ -51,9 +51,10 @@ const Monster: FCC = (props: Props) => {
           <div className=" flex col-span-12 xl:col-span-7 items-center justify-center relative">
             <img src="/images/Group45.png" className="animate-bounce-img z-50" alt="bear" />
             <div className="absolute top-60 right-4 animate-bounce2 rounded-full w-10 h-10  bg-[linear-gradient(180deg,rgba(226,80,229,0.86)0%,#4B50E6),linear-gradient(0deg,#FFFFFF,#FFFFFF)]"></div>
-            <div className="absolute top-40 left-4 animate-bounce3 rounded-full w-20 h-20  bg-[linear-gradient(180deg,rgba(226,80,229,0.86)0%,#4B50E6),linear-gradient(0deg,#FFFFFF,#FFFFFF)]"></div>
-            <div className="absolute top-100 right-40 animate-bounce3 rounded-full w-10 h-10  bg-[linear-gradient(180deg,rgba(226,80,229,0.86)0%,#4B50E6),linear-gradient(0deg,#FFFFFF,#FFFFFF)]"></div>
-            <div className="absolute top-10 left-100 animate-bounce4 rounded-full w-10 h-10  bg-[linear-gradient(180deg,rgba(226,80,229,0.86)0%,#4B50E6),linear-gradient(0deg,#FFFFFF,#FFFFFF)]"></div>
+            <div className="absolute top-10 right-80 animate-bounce3 rounded-full w-10 h-10  bg-[linear-gradient(180deg,rgba(226,80,229,0.86)0%,#4B50E6),linear-gradient(0deg,#FFFFFF,#FFFFFF)]"></div>
+            <div className="absolute top-40 left-28 animate-bounce3 rounded-full w-20 h-20  bg-[linear-gradient(180deg,rgba(226,80,229,0.86)0%,#4B50E6),linear-gradient(0deg,#FFFFFF,#FFFFFF)]"></div>
+            <div className="absolute top-100 right-80 animate-bounce3 rounded-full w-10 h-10  bg-[linear-gradient(180deg,rgba(226,80,229,0.86)0%,#4B50E6),linear-gradient(0deg,#FFFFFF,#FFFFFF)]"></div>
+            <div className="absolute -top-20 left-80 animate-bounce4 rounded-full w-24 h-24 bg-[linear-gradient(180deg,rgba(226,80,229,0.86)0%,#4B50E6),linear-gradient(0deg,#FFFFFF,#FFFFFF)]"></div>
           </div>
         </div>
       </div>

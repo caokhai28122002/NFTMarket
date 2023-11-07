@@ -18,7 +18,7 @@ const ActionCard: FCC<INFT> = ({
   return (
     <div
       onClick={() => push("/nfts/" + tokenId)}
-      className="bg-[#34344499] ring-2 hover:ring-4 cursor-pointer ring-blue-500 hover:bg-[#343444] shadow-lg hover:shadow-2xl hover:shadow-[#5142FC] h-fit p-4 text-white flex flex-col gap-4 rounded-xl"
+      className="bg-[#34344499] ring-2 hover:ring-4 cursor-pointer ring-purple-500 hover:bg-[#343444] shadow-lg hover:shadow-2xl hover:shadow-[#E05BFF] h-fit p-4 text-white flex flex-col gap-4 rounded-xl"
     >
       <div className="relative w-full h-fit">
         <img
