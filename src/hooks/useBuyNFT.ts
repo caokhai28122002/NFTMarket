@@ -2,29 +2,26 @@ import { INFT } from "@/apis/types";
 import { ethers } from "ethers";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import toast from "react-hot-toast";
-import useAccount from "./useAccount";
 import useContract from "./useContract";
+import { useAccount } from "wagmi";
 
 const useBuyNFT = (nft?: INFT) => {
   const { contract } = useContract();
-  const { account, request } = useAccount();
+  const { address } = useAccount();
   const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    request();
-  }, [request]);
 
   const isDisable = useMemo(
     () =>
-      nft?.owner.toLowerCase() === account.toLowerCase() ||
-      nft?.seller.toLowerCase() === account.toLowerCase(),
-    [account, nft?.owner, nft?.seller]
+      !address ||
+      nft?.owner.toLowerCase() === address.toLowerCase() ||
+      nft?.seller.toLowerCase() === address.toLowerCase(),
+    [address, nft?.owner, nft?.seller]
   );
 
   const mutate = useCallback(async () => {
     try {
       setLoading(true);
-      const price = ethers.parseEther(nft?.price.toString() ?? '0');
+      const price = ethers.parseEther(nft?.price.toString() ?? "0");
       const transaction = await contract?.createMarketSale(nft?.tokenId, {
         value: price,
       });

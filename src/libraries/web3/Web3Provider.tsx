@@ -1,22 +1,19 @@
 import { FCC } from "@/types";
-// import {
-//   Config,
-//   DAppProvider,
-//   Goerli,
-//   Mainnet
-// } from "@usedapp/core";
-// import { getDefaultProvider } from "ethers";
 
-// const config: Config = {
-//   readOnlyChainId: Mainnet.chainId,
-//   readOnlyUrls: {
-//     [Mainnet.chainId]: getDefaultProvider("mainnet"),
-//     [Goerli.chainId]: getDefaultProvider("goerli"),
-//   },
-// };
+import { createPublicClient, http } from "viem";
+import { bscTestnet } from "viem/chains";
+import { WagmiConfig, createConfig } from "wagmi";
+
+const config = createConfig({
+  autoConnect: true,
+  publicClient: createPublicClient({
+    chain: bscTestnet,
+    transport: http(),
+  }),
+});
 
 const Web3Provider: FCC = ({ children }) => {
-  return <>{children}</>;
+  return <WagmiConfig config={config}>{children}</WagmiConfig>;
 };
 
 export default Web3Provider;
