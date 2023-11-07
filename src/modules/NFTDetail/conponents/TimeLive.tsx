@@ -25,8 +25,16 @@ const TimeLive = ({ lastTime }: Props) => {
 
   const weeks =
     timeLeft > 0 ? Math.floor(timeLeft / (1000 * 60 * 60 * 24 * 7)) : 0;
-  const days = timeLeft > 0 ? Math.floor(timeLeft / (1000 * 60 * 60 * 24)) : 0;
-  const hours = timeLeft > 0 ? Math.floor(timeLeft / (1000 * 60 * 60)) : 0;
+  const days =
+    timeLeft > 0
+      ? Math.floor(
+          (timeLeft % (1000 * 60 * 60 * 24 * 7)) / (1000 * 60 * 60 * 24)
+        )
+      : 0;
+  const hours =
+    timeLeft > 0
+      ? Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+      : 0;
   const minutes =
     timeLeft > 0 ? Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60)) : 0;
   const seconds =
