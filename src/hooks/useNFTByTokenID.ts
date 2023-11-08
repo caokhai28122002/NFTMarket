@@ -1,12 +1,11 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
-import useContract from "./useContract";
+import { INFT } from "@/apis/types";
 import axios from "axios";
 import { ethers } from "ethers";
-import toast from "react-hot-toast";
-import { INFT } from "@/apis/types";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { useContractNoSigner } from "./useContract";
 
 const useNFTByTokenID = (tokenId: string) => {
-  const { contract } = useContract();
+  const { contract } = useContractNoSigner();
   const [loading, setLoading] = useState(true);
   const [nft, setNFT] = useState<INFT>();
   const refresh = useCallback(async () => {
@@ -15,9 +14,6 @@ const useNFTByTokenID = (tokenId: string) => {
       const data = await contract?.NFTByTokenID(ethers.getUint(tokenId));
       const tokenUri = await contract?.tokenURI(data.tokenId);
 
-      // const tokenURL =
-      //   "https://teal-rainy-fly-99.mypinata.cloud/ipfs/QmNvyzER1Hr9yZs7qabnAV1ii2LHAmbGFsqJ89B2Refm5Z";
-      //to do update to token uri
       const meta = await axios.get(tokenUri);
       const price = ethers.formatEther(data.price.toString());
 
