@@ -1,15 +1,13 @@
-import React, { useEffect, useMemo, useState } from "react";
+import { NFTMarketAddress } from "@/constants";
+import NFTMarket from "@@/artifacts/contracts/NFTMarket.sol/NFTMarket.json";
 import {
   BrowserProvider,
   Contract,
-  InterfaceAbi,
   JsonRpcProvider,
   JsonRpcSigner,
   ethers,
 } from "ethers";
-import { ContractRunner } from "ethers";
-import { NFTMarketAddress } from "@/constants";
-import NFTMarket from "@@/artifacts/contracts/NFTMarket.sol/NFTMarket.json";
+import { useMemo } from "react";
 import { WalletClient, useNetwork, useWalletClient } from "wagmi";
 
 const useContract = () => {

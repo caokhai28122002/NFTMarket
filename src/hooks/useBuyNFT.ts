@@ -1,9 +1,10 @@
 import { INFT } from "@/apis/types";
 import { ethers } from "ethers";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import toast from "react-hot-toast";
-import useContract from "./useContract";
 import { useAccount } from "wagmi";
+import useContract from "./useContract";
+import { getErrorMessage } from "@/libraries/utils";
 
 const useBuyNFT = (nft?: INFT, onSuccess = () => {}, onError = () => {}) => {
   const { contract } = useContract();
@@ -32,7 +33,7 @@ const useBuyNFT = (nft?: INFT, onSuccess = () => {}, onError = () => {}) => {
     } catch (error) {
       console.error(error);
       await onError();
-      toast.error("Error execute transaction");
+      toast.error(getErrorMessage(error));
     } finally {
       setLoading(false);
     }
