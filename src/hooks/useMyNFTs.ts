@@ -4,6 +4,7 @@ import axios from "axios";
 import { ethers } from "ethers";
 import toast from "react-hot-toast";
 import { INFT } from "@/apis/types";
+import { PINATA_SECRET_GATEWAY_TOKEN } from "@/constants";
 
 const useMyNFTs = () => {
   const { contract } = useContract();
@@ -17,14 +18,14 @@ const useMyNFTs = () => {
         data.map(async (i: any) => {
           const tokenUri = await contract?.tokenURI(i.tokenId);
 
-          const meta = await axios.get(tokenUri);
+          const meta = await axios.get(tokenUri+ "?pinataGatewayToken=" + PINATA_SECRET_GATEWAY_TOKEN);
           const price = ethers.formatEther(i.price.toString());
           return {
             price: price,
             tokenId: Number(i.tokenId),
             seller: i.seller,
             owner: i.owner,
-            image: meta.data.image,
+            image: meta.data.image+ "?pinataGatewayToken=" + PINATA_SECRET_GATEWAY_TOKEN,
             name: meta.data.name,
             description: meta.data.description,
             createdAt: meta.data.createdAt,

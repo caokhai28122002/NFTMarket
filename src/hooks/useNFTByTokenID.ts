@@ -3,6 +3,7 @@ import axios from "axios";
 import { ethers } from "ethers";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useContractNoSigner } from "./useContract";
+import { PINATA_SECRET_GATEWAY_TOKEN } from "@/constants";
 
 const useNFTByTokenID = (tokenId: string) => {
   const { contract } = useContractNoSigner();
@@ -14,7 +15,7 @@ const useNFTByTokenID = (tokenId: string) => {
       const data = await contract?.NFTByTokenID(ethers.getUint(tokenId));
       const tokenUri = await contract?.tokenURI(data.tokenId);
 
-      const meta = await axios.get(tokenUri);
+      const meta = await axios.get(tokenUri+ "?pinataGatewayToken=" + PINATA_SECRET_GATEWAY_TOKEN);
       const price = ethers.formatEther(data.price.toString());
 
       setNFT({
@@ -22,7 +23,7 @@ const useNFTByTokenID = (tokenId: string) => {
         tokenId: Number(data.tokenId),
         seller: data.seller,
         owner: data.owner,
-        image: meta.data.image,
+        image: meta.data.image+ "?pinataGatewayToken=" + PINATA_SECRET_GATEWAY_TOKEN,
         name: meta.data.name,
         description: meta.data.description,
         createdAt: meta.data.createdAt,

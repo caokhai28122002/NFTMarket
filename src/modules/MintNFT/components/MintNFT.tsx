@@ -19,6 +19,7 @@ type Props = {};
 const MintNFT = (props: Props) => {
   const { createSale } = useMintNFT();
   const { address } = useAccount();
+  const { push } = useRouter();
   const [loading, setLoading] = useState(false);
   const [file, setFile] = useState<File | null>(null);
   const form = useForm({});
@@ -39,7 +40,9 @@ const MintNFT = (props: Props) => {
         image: PINATA_IPFS_URL + image.IpfsHash,
       });
       await createSale(PINATA_IPFS_URL + nft.IpfsHash, data.price);
+      push("/nfts")
     } catch (error) {
+      console.log(error);
     } finally {
       setLoading(false);
     }

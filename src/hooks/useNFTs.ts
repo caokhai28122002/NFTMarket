@@ -3,6 +3,7 @@ import axios from "axios";
 import { ethers } from "ethers";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useContractNoSigner } from "./useContract";
+import { PINATA_SECRET_GATEWAY_TOKEN } from "@/constants";
 
 const useNFTs = () => {
   const { contract } = useContractNoSigner();
@@ -16,7 +17,9 @@ const useNFTs = () => {
         data.map(async (i: any) => {
           const tokenUri = await contract?.tokenURI(i.tokenId);
 
-          const meta = await axios.get(tokenUri);
+          const meta = await axios.get(
+            tokenUri + "?pinataGatewayToken=" + PINATA_SECRET_GATEWAY_TOKEN
+          );
           const price = ethers.formatEther(i.price.toString());
 
           return {
@@ -24,7 +27,10 @@ const useNFTs = () => {
             tokenId: Number(i.tokenId),
             seller: i.seller,
             owner: i.owner,
-            image: meta.data.image,
+            image:
+              meta.data.image +
+              "?pinataGatewayToken=" +
+              PINATA_SECRET_GATEWAY_TOKEN,
             name: meta.data.name,
             description: meta.data.description,
             createdAt: meta.data.createdAt,

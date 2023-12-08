@@ -6,7 +6,7 @@ import MyAssets from "./components/MyAssets";
 
 const MyNFTPage: NextPageWithLayout = () => {
   return (
-    <div className="flex w-full flex-col py-20">
+    <div className="flex w-full flex-col py-20 min-h-screen">
       <MyInfo />
       <div className="flex h-1 bg-[#343444]" />
       <MyAssets />
