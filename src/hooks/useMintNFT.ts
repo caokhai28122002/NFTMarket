@@ -12,7 +12,7 @@ const useMintNFT = () => {
       try {
         const unitPrice = ethers.parseEther(price)
         let transaction = await contract?.createToken(url, unitPrice, {
-          value: ethers.parseUnits("0", "wei"),
+          value: ethers.parseEther("0"),
         });
         await transaction.wait();
         toast.success("Your NFT has been listed.");

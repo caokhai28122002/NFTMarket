@@ -26,7 +26,7 @@ const LiveAuctions: FCC = () => {
           {!!nfts &&
             nfts.map((v: INFT, i: number) => <ActionCard {...v} key={i} />)}
         </div>
-        <Button className="text-lg px-8">Load more</Button>
+        {/* <Button className="text-lg px-8">Load more</Button> */}
       </div>
     </div>
   );
