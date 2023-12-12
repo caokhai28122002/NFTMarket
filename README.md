@@ -1,6 +1,12 @@
 ## Getting Started
 
-First, run the development server:
+### First, you need add environment variables
+
+```bash
+cp .env.example .env
+```
+
+### Next, run the development server:
 
 ```bash
 npx hardhat node
