@@ -46,7 +46,7 @@ const ActionCard: FCC<INFT> = ({
         </div>
         <div className="flex flex-col items-end">
           <p className="text-[#8A8AA0] font-medium">Current Price</p>
-          <p className="font-semibold">{price} BNB</p>
+          <p className="font-semibold">{price} ETH</p>
         </div>
       </div>
     </div>

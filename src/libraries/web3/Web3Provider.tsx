@@ -1,13 +1,13 @@
 import { FCC } from "@/types";
 
 import { createPublicClient, http } from "viem";
-import { bscTestnet } from "viem/chains";
+import { hardhat } from "viem/chains";
 import { WagmiConfig, createConfig } from "wagmi";
 
 const config = createConfig({
   autoConnect: true,
   publicClient: createPublicClient({
-    chain: bscTestnet,
+    chain: hardhat,
     transport: http(),
   }),
 });

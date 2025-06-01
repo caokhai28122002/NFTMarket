@@ -13,7 +13,7 @@ const useNFTs = () => {
     try {
       setLoading(true);
       const data = await contract?.fetchMarketItems.staticCall();
-      const items: INFT[] = await Promise.all(
+      const items= await Promise.allSettled(
         data.map(async (i: any) => {
           const tokenUri = await contract?.tokenURI(i.tokenId);
 
@@ -37,7 +37,7 @@ const useNFTs = () => {
           } as INFT;
         })
       );
-      setNFTs(items);
+      setNFTs(items.filter((i) => i.status === "fulfilled").map((i) => i.value));
     } catch (error) {
       console.log(error);
     } finally {

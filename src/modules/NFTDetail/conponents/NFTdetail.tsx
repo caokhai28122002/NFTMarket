@@ -12,6 +12,10 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import TimeLive from "./TimeLive";
 import NFTLoading from "./NFTLoading";
+import { NFTInteraction } from "@/components/NFTInteraction";
+import { NFTWishlist } from "@/components/NFTWishlist";
+import { CreatorFollow } from "@/components/CreatorFollow";
+import { useAccount } from "wagmi";
 
 type Props = {};
 
@@ -23,10 +27,12 @@ const NFTDetail: FCC = (props: Props) => {
    await refresh();
   });
 
+  const { address } = useAccount();
+
   const [love, setLove] = useState(0);
 
   const action = {
-    Artist: "Ralph Garraway",
+    Artist: "Cao Khai",
     Size: "3000 x 3000",
     Collection: "Cyberpunk City Art",
   };
@@ -60,23 +66,14 @@ const NFTDetail: FCC = (props: Props) => {
               <button className="flex h-[35px] w-[76.05px] space-x-1 bg-gray-950 justify-center items-center border rounded-[100px] hover:border-[#ffffff]">
                 <Eye /> <a className="text-white">1</a>
               </button>
-              <button
-                className={clsx(
-                  "flex h-[35px] w-[76.05px] space-x-1 justify-center text-center items-center rounded-[100px] border hover:border-[#ffffff]",
-                  {
-                    "bg-blue-700": love >= 1,
-                    "bg-gray-950": love < 1,
-                  }
-                )}
-                onClick={() => {
-                  setLove((prev) => prev + 1);
-                }}
-              >
-                <Symbol />
-                <a className="text-white">{love}</a>
-              </button>
+              {nft?.tokenId !== undefined && (
+                 <NFTWishlist tokenId={Number(query.id)} />
+              )}
             </div>
           </div>
+          {address && nft?.tokenId !== undefined && (
+            <NFTInteraction tokenId={Number(query.id)} userAddress={nft?.seller ?? ''} />
+          )}
           <div className="flex flex-row  w-full space-x-8 gap-y-2">
             <div className="flex flex-row items-center gap-3 px-2 w-full h-[68px] border rounded-2xl border-[#343444] bg-[#343444]">
               <Avatar
@@ -128,7 +125,7 @@ const NFTDetail: FCC = (props: Props) => {
             <div className="grid grid-rows-2 gap-4">
               <div className="flex items-center text-white bg-[#343444] border rounded-lg border-[#343444] justify-between p-4 px-6">
                 Current Bid
-                <a className="">{nft?.price} BNB</a>
+                <a className="">{nft?.price} ETH</a>
               </div>
               <div className="text-white bg-[#343444] border rounded-lg border-[#343444] flex justify-center items-center font-bold text-2xl p-4 px-6">
                 <TimeLive lastTime={new Date(nft?.createdAt ?? "").getTime()} />
@@ -168,7 +165,7 @@ const NFTDetail: FCC = (props: Props) => {
                 <a>{new Date(nft?.createdAt ?? "").toDateString()}</a>
               </div>
             </div>
-            <a className="px-2">{nft?.price} BNB</a>
+            <a className="px-2">{nft?.price} ETH</a>
           </div>
         </div>
       </div>
